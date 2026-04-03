@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/evtg_favi.png',
+        url: '/evtg-favi.png',
         type: 'image/svg+xml',
       },
     ],
