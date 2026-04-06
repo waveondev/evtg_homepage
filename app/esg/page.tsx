@@ -176,7 +176,7 @@ export default function ESGPage() {
               <span className="text-primary">진심인 기업</span>
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed text-pretty">
-              이브이타고는 전기이륜차와 BSS 서비스를 통해
+              이브이타고는 전기이륜차와 BSS 서비스를 통해<br/>
               실질적인 탄소 감축을 실현하는 ESG 선도 기업입니다.
             </p>
           </motion.div>
@@ -299,9 +299,8 @@ export default function ESGPage() {
                 </h2>
                 <p className="text-muted-foreground text-lg mb-8 text-pretty">
                   이브이타고는 2035년까지 연간 100,000톤의 탄소를
-                  감축하는 것을 목표로 하고 있습니다.
-                  매년 더 많은 전기이륜차와 충전 스테이션을 보급하여
-                  실질적인 환경 개선을 이루어 나갑니다.
+                  감축하는 것을<br/>목표로 하고 있습니다.
+                  <br/>매년 더 많은 전기이륜차와 충전 스테이션을 보급하여<br/>실질적인 환경 개선을 이루어 나갑니다.
                 </p>
                 <Button
                   asChild

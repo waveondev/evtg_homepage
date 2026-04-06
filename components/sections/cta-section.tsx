@@ -29,7 +29,7 @@ export function CTASection() {
             <p className="text-muted-foreground text-lg mb-8 text-pretty leading-relaxed">
               개인 라이더부터 배달 플랫폼, 물류 기업까지.
               모든 규모의 비즈니스를 위한 맞춤형 솔루션을 제공합니다.
-              지속 가능한 미래로의 전환, 함께 시작하세요.
+              지속 가능한 미래로의 전환,<br/>함께 시작하세요.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-10">

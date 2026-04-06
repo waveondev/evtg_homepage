@@ -72,8 +72,8 @@ export function ESGSection() {
               className="text-muted-foreground text-lg leading-relaxed mb-8 text-pretty"
             >
               탄소 중립은 먼 미래의 이야기가 아닙니다.
-              이브이타고는 오늘의 모빌리티가 내일의 환경을 결정한다고 믿습니다.
-              배터리 하나, 주행 한 번이 모여 만드는 변화를 함께 경험하세요.
+              이브이타고는 오늘의<br/>모빌리티가 내일의 환경을 결정한다고 믿습니다.
+              배터리 하나, 주행 한 번이<br/>모여 만드는 변화를 함께 경험하세요.
             </motion.p>
 
             {/* ESG Pillars */}

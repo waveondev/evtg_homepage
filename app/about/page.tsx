@@ -22,7 +22,7 @@ export default function AboutPage() {
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
               이브이타고는 2023년, 탄소 중립 모빌리티의 미래를 꿈꾸며 시작되었습니다.
-              전기 이륜차와 배터리 스왑 인프라를 통해 도시의 이동 방식을 바꾸고 있습니다.
+              <br/>전기 이륜차와 배터리 스왑 인프라를 통해 도시의 이동 방식을 바꾸고 있습니다.
             </p>
           </div>
         </div>
@@ -55,7 +55,7 @@ export default function AboutPage() {
               <p className="text-muted-foreground text-lg leading-relaxed mb-8">
                 모빌리티 산업에서 발생하는 탄소 배출을 제로로 만드는 것.<br/>
                 이것이 이브이타고가 존재하는 이유입니다.
-                우리는 기술 혁신과 인프라 구축을 통해<br/>
+                우리는 기술 혁신과<br/>인프라 구축을 통해
                 누구나 쉽게 친환경 이동 수단을 선택할 수 있는 세상을 만듭니다.
               </p>
             </div>

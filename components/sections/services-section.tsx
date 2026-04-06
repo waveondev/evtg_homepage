@@ -84,7 +84,7 @@ export function ServicesSection() {
             className="text-muted-foreground text-lg max-w-2xl mx-auto text-pretty"
           >
             배터리의 여정은 끝이 없습니다. 충전, 사용, 교환, 그리고 재활용.
-            이브이타고는 모빌리티의 완전한 순환을 실현합니다.
+            이브이타고는<br/>모빌리티의 완전한 순환을 실현합니다.
           </motion.p>
         </div>
 
@@ -109,7 +109,7 @@ export function ServicesSection() {
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card/40 via-transparent to-transparent" />
 
                     {/* Stats badge */}
                     <div className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm rounded-full px-4 py-2">
