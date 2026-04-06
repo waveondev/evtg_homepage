@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Menu, X, Leaf } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
 
 const navItems = [
   { href: "/", label: "홈" },
@@ -40,13 +41,27 @@ export function Navigation() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
+            {/*<Link href="/" className="flex items-center gap-2.5">*/}
+            {/*  <div className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center">*/}
+            {/*    <Leaf className="w-5 h-5 text-primary-foreground" />*/}
+            {/*  </div>*/}
+            {/*  <span className="text-lg font-bold tracking-tight text-foreground">*/}
+            {/*    이브이타고1*/}
+            {/*  </span>*/}
+            {/*</Link>*/}
+
             <Link href="/" className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center">
-                <Leaf className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <span className="text-lg font-bold tracking-tight text-foreground">
-                이브이타고
-              </span>
+              {/*<div className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center">*/}
+              {/*  <Leaf className="w-5 h-5 text-primary-foreground" />*/}
+              {/*</div>*/}
+              {/* 아래 부분을 수정했습니다. */}
+              <Image
+                  src="/images/evtago_logo.png" // 실제 로고 이미지 파일 경로를 입력하세요 (예: /public/logo.png).
+                  alt="이브이타고 로고" // 접근성을 위한 대체 텍스트
+                  width={100} // 로고의 너비 (픽셀 단위)를 입력하세요.
+                  height={24} // 로고의 높이 (픽셀 단위)를 입력하세요.
+                  priority // 페이지 로드 시 우선적으로 로딩 (선택 사항)
+              />
             </Link>
 
             {/* Desktop Navigation */}

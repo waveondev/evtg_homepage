@@ -18,7 +18,7 @@ const footerLinks = {
   ],
   support: [
     { href: "/faq", label: "자주 묻는 질문" },
-    { href: "/contact", label: "고객센터" },
+    // { href: "/contact", label: "고객센터" },
     // { href: "/download", label: "앱 다운로드" },
     // { href: "/guide", label: "이용 가이드" },
   ],
