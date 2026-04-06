@@ -89,7 +89,7 @@ export function ProductShowcase() {
                     </div>
                     <div className="text-right">
                       <p className="text-sm text-muted-foreground">Starting from</p>
-                      <p className="text-lg font-bold text-primary">1,690,000원</p>
+                      <p className="text-lg font-bold text-primary">판매 예정</p>
                     </div>
                   </div>
                 </div>
