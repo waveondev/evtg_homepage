@@ -58,8 +58,8 @@ export function Navigation() {
               <Image
                   src="/images/evtago_logo.png" // 실제 로고 이미지 파일 경로를 입력하세요 (예: /public/logo.png).
                   alt="이브이타고 로고" // 접근성을 위한 대체 텍스트
-                  width={100} // 로고의 너비 (픽셀 단위)를 입력하세요.
-                  height={24} // 로고의 높이 (픽셀 단위)를 입력하세요.
+                  width={128} // 로고의 너비 (픽셀 단위)를 입력하세요.
+                  height={25} // 로고의 높이 (픽셀 단위)를 입력하세요.
                   priority // 페이지 로드 시 우선적으로 로딩 (선택 사항)
               />
             </Link>

@@ -19,7 +19,7 @@ const features = [
   },
   {
     icon: Shield,
-    title: "5년 품질 보증",
+    title: "품질 보증",
     description: "믿을 수 있는 A/S",
   },
   {

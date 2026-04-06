@@ -142,8 +142,8 @@ export function HeroSection() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-foreground">1+</div>
-              <div className="text-sm text-muted-foreground mt-1">전국 스테이션</div>
+              <div className="text-2xl md:text-3xl font-bold text-foreground">48V / 72V</div>
+              <div className="text-sm text-muted-foreground mt-1">공용 충전 스테이션</div>
             </div>
             <div className="text-center">
               <div className="text-2xl md:text-3xl font-bold text-foreground">100km</div>
