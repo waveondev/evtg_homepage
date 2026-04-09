@@ -11,7 +11,7 @@ const navItems = [
   { href: "/", label: "홈" },
   // { href: "/vehicles", label: "전기이륜차" },
   // { href: "/battery-swap", label: "배터리 스왑" },
-  { href: "/stations", label: "스테이션" },
+  // { href: "/stations", label: "스테이션" },
   { href: "/about", label: "회사소개" },
   { href: "/esg", label: "ESG" },
 ]

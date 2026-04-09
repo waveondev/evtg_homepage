@@ -31,21 +31,21 @@ export function Footer() {
       <div className="max-w-[980px] mx-auto px-6 py-5">
         {/* Link Groups */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-4">
-          <div>
-            <h4 className="text-xs font-semibold text-foreground mb-3">서비스</h4>
-            <ul className="space-y-2">
-              {footerLinks.services.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-xs text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/*<div>*/}
+          {/*  <h4 className="text-xs font-semibold text-foreground mb-3">서비스</h4>*/}
+          {/*  <ul className="space-y-2">*/}
+          {/*    {footerLinks.services.map((link) => (*/}
+          {/*      <li key={link.href}>*/}
+          {/*        <Link*/}
+          {/*          href={link.href}*/}
+          {/*          className="text-xs text-muted-foreground hover:text-foreground transition-colors"*/}
+          {/*        >*/}
+          {/*          {link.label}*/}
+          {/*        </Link>*/}
+          {/*      </li>*/}
+          {/*    ))}*/}
+          {/*  </ul>*/}
+          {/*</div>*/}
           <div>
             <h4 className="text-xs font-semibold text-foreground mb-3">회사</h4>
             <ul className="space-y-2">
