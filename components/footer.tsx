@@ -113,7 +113,7 @@ export function Footer() {
               href="/terms"
               className="text-xs text-muted-foreground hover:text-foreground transition-colors"
             >
-              이용약관
+              위치기반서비스이용약관
             </Link>
             {/*<span className="text-muted-foreground/50">|</span>*/}
             {/*<span className="text-xs text-muted-foreground">*/}
