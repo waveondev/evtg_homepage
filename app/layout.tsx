@@ -9,10 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: '이브이타고',
-  description: '탄소 중립을 향한 친환경 모빌리티 솔루션. 전기 오토바이와 배터리 스왑 스테이션으로 지속 가능한 미래를 만들어갑니다.',
-  generator: 'v0.app',
-  keywords: ['전기이륜차', '배터리스왑', 'ESG', '탄소중립', '친환경', '전기오토바이'],
+  title: '이브이타고 (EVTAGO) - BSS & 탄소 중립 모빌리티',
+  description: '더 깨끗한 이동을 위한 우리의 여정. 이브이타고는 전기 이륜차와 배터리 스왑(BSS) 인프라를 통해 도시의 이동 방식을 바꾸는 친환경 모빌리티 기업입니다.',
+  keywords: ['전기 이륜차', '배터리 스왑', 'BSS', '탄소 중립', '모빌리티', '이브이타고', 'EVTAGO'],
   icons: {
     icon: [
       {
@@ -29,6 +28,17 @@ export const metadata: Metadata = {
       },
     ],
     apple: '/apple-icon.png',
+  },
+  openGraph: {
+    title: '이브이타고 (EVTAGO)',
+    description: 'BSS & 탄소 중립 모빌리티 플랫폼',
+    url: 'https://www.ev-tago.com',
+    siteName: '이브이타고',
+    locale: 'ko_KR',
+    type: 'website',
+  },
+  verification: {
+    google: 'WGOcsp3cRP71zrD1MJWyiY_hGSgwf68et852dzfGG7g', // 구글 서치 콘솔에서 발급받은 코드
   },
 }
 
