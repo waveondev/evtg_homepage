@@ -39,6 +39,9 @@ export const metadata: Metadata = {
   },
   verification: {
     google: 'WGOcsp3cRP71zrD1MJWyiY_hGSgwf68et852dzfGG7g', // 구글 서치 콘솔에서 발급받은 코드
+    other: {
+      'naver-site-verification': '4818e00d5985f1c905e40a586031bfaa3d5d891a',
+    },
   },
 }
 
