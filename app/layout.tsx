@@ -15,23 +15,23 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/icon-light-32x321.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/favicon-96x9611.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
         url: '/evtg-favi.png',
         type: 'image/svg+xml',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '/evtg-favi.png',
   },
   openGraph: {
     title: '이브이타고 (EVTAGO)',
     description: 'BSS & 탄소 중립 모빌리티 플랫폼',
+    images: [
+      {
+        url: 'https://www.ev-tago.com/evtg-favi.png',
+        width: 323,
+        height: 315,
+        alt: '이브이타고 로고',
+      },
+    ],
     url: 'https://www.ev-tago.com',
     siteName: '이브이타고',
     locale: 'ko_KR',
