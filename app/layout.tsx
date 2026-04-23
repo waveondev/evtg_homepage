@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: '1이브이타고 (EVTAGO) - BSS & 탄소 중립 모빌리티',
+  title: '이브이타고 (EVTAGO) - BSS & 탄소 중립 모빌리티',
   description: '더 깨끗한 이동을 위한 우리의 여정. 이브이타고는 전기 이륜차와 배터리 스왑(BSS) 인프라를 통해 도시의 이동 방식을 바꾸는 친환경 모빌리티 기업입니다.',
   keywords: ['전기 이륜차', '배터리 스왑', 'BSS', '탄소 중립', '모빌리티', '이브이타고', 'EVTAGO'],
   icons: {
