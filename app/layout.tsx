@@ -1,7 +1,10 @@
 import type { Metadata, Viewport } from 'next'
+import Script from 'next/script'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
+import KakaoScript from "@/app/components/KakaoScript";
+import KakaoChatButton from "@/app/components/KakaoChatButton";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -51,6 +54,12 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -61,6 +70,11 @@ export default function RootLayout({
       <body className={`${inter.variable} font-sans antialiased`}>
         {children}
         <Analytics />
+        {/* 1. 카카오 SDK 스크립트 (onLoad 포함된 클라이언트 컴포넌트) */}
+        <KakaoScript />
+
+        {/* 2. 우측 하단 고정 상담 버튼 */}
+        <KakaoChatButton />
       </body>
     </html>
   )
