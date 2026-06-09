@@ -5,6 +5,7 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import KakaoScript from "@/app/components/KakaoScript";
 import KakaoChatButton from "@/app/components/KakaoChatButton";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const inter = Inter({
   subsets: ["latin"],
@@ -75,6 +76,9 @@ export default function RootLayout({
 
         {/* 2. 우측 하단 고정 상담 버튼 */}
         <KakaoChatButton />
+
+        {/* 3. 구글 애널리틱스 컴포넌트 추가 */}
+        <GoogleAnalytics gaId="G-J8DLB9Z5T3" />
       </body>
     </html>
   )
