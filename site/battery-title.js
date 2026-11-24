@@ -1,6 +1,6 @@
 (()=>{'use strict';
 /*
- * "충전을 기다리는 대신, 배터리를 바꾸세요." — ink-fill title.
+ * "충전을 기다리는 대신, 배터리를 교환하세요." — ink-fill title.
  * The fill follows the scroll position (as before), and ALSO plays by itself once the title is pinned,
  * so a mouse wheel doesn't have to be spun for the text to complete. Scrolling further still drives the
  * fade-out at the end of the scene.
