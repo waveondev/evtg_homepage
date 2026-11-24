@@ -1,0 +1,119 @@
+/* 이브이타고 APP 소개 페이지. 색·톤·버튼은 스테이션 페이지(station.css)와 같게 맞춤. */
+.ap-page{--ap-blue:#0068ff;--ap-ink:#191f28;--ap-muted:#667282;--ap-line:#dce2e9;--ap-paper:#f5f7fa;--ap-dark:#10151b;font-family:Pretendard,-apple-system,sans-serif;color:var(--ap-ink);background:#fff}
+.ap-wrap{width:min(1280px,calc(100% - 96px));margin-inline:auto}
+.ap-page h1,.ap-page h2,.ap-page h3{margin:0;white-space:normal;letter-spacing:-.045em;word-break:keep-all}
+.ap-page h1{font-size:clamp(36px,3.3vw,58px);line-height:1.2;font-weight:750}
+.ap-page h2{font-size:clamp(30px,3.4vw,52px);line-height:1.25;font-weight:750}
+.ap-page h3{font-size:clamp(24px,2.1vw,32px);line-height:1.38;font-weight:700}
+.ap-page p{line-height:1.75;word-break:keep-all}
+.ap-page figure{margin:0}
+.ap-page img{display:block;max-width:100%;height:auto}
+.ap-page a:focus-visible{outline:3px solid var(--ap-blue);outline-offset:5px}
+.ap-page [id]{scroll-margin-top:100px}
+.ap-skip{position:fixed;left:16px;top:-80px;z-index:200;background:#fff;padding:14px}.ap-skip:focus{top:8px}
+.ap-eyebrow{font-family:Play,Pretendard,sans-serif;color:var(--ap-blue);font-size:13px;font-weight:700;letter-spacing:.09em;margin:0 0 22px}
+.ap-section{padding-block:120px}
+
+/* 스토어 버튼 */
+.ap-stores{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+.ap-store{display:inline-flex;align-items:center;gap:12px;min-height:56px;padding:0 22px 0 18px;border-radius:12px;background:var(--ap-ink);color:#fff;text-decoration:none;transition:background .2s}
+.ap-store:hover{background:#000}
+.ap-store svg{width:26px;height:26px;fill:currentColor;flex:none}
+.ap-store span{display:flex;flex-direction:column;line-height:1.2}
+.ap-store small{font-size:11px;opacity:.72;letter-spacing:.02em}
+.ap-store strong{font-size:17px;font-weight:650;letter-spacing:-.01em}
+.ap-stores.light .ap-store{background:#fff;color:var(--ap-ink)}
+.ap-stores.light .ap-store:hover{background:#e8edf3}
+
+/* Hero */
+.ap-hero{background:var(--ap-paper);padding-top:calc(var(--nav-height) + 24px);overflow:hidden}
+.ap-hero-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;min-height:680px;padding-block:40px 0}
+.ap-hero-copy{padding-bottom:40px}
+.ap-app-id{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.ap-app-id img{width:56px;height:56px;border-radius:14px;background:#fff;box-shadow:0 4px 14px rgba(25,31,40,.1)}
+.ap-app-id strong{display:block;font-size:18px;font-weight:700;letter-spacing:-.02em}
+.ap-app-id span{font-size:14px;color:var(--ap-muted)}
+.ap-lead{font-size:19px;color:var(--ap-muted);margin:26px 0 0}
+/* 가운데 홈 화면을 앞에, 좌우 화면을 뒤로 겹쳐 배치 */
+.ap-hero-phones{position:relative;height:640px;align-self:end}
+.ap-hero-phones img{position:absolute;bottom:-60px;width:300px;filter:drop-shadow(0 30px 40px rgba(25,31,40,.18))}
+.ap-hero-phones .center{left:50%;transform:translateX(-50%);z-index:2;bottom:-40px;width:320px}
+.ap-hero-phones .left{left:50%;transform:translateX(-118%) rotate(-6deg) scale(.88);transform-origin:bottom center}
+.ap-hero-phones .right{left:50%;transform:translateX(18%) rotate(6deg) scale(.88);transform-origin:bottom center}
+
+/* Statement */
+.ap-statement{text-align:center}
+.ap-statement-lines{font-size:clamp(32px,4.2vw,64px);font-weight:750;letter-spacing:-.05em;line-height:1.32;margin:0}
+.ap-statement-lines span{display:block;color:#c3cad4}
+.ap-statement-lines span:last-child{color:var(--ap-ink)}
+.ap-statement-sub{font-size:19px;color:var(--ap-muted);margin:36px 0 0}
+.ap-statement-sub strong{color:var(--ap-ink);font-weight:700}
+
+/* Feature rows */
+.ap-features{display:grid;gap:120px}
+.ap-feature{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.ap-feature:nth-child(even) .ap-shot{order:2}
+.ap-shot{display:flex;justify-content:center;align-items:flex-end;aspect-ratio:4/3.6;border-radius:24px;background:var(--ap-paper);overflow:hidden;padding-top:48px}
+.ap-shot img{width:min(58%,330px);margin-bottom:-18%;filter:drop-shadow(0 24px 32px rgba(25,31,40,.16))}
+.ap-number{display:block;font-family:Play,sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--ap-muted);margin-bottom:18px}
+.ap-feature p{font-size:17px;color:var(--ap-muted);margin:22px 0 0}
+.ap-points{list-style:none;padding:0;margin:28px 0 0;border-top:1px solid #e2e6ec}
+.ap-points li{font-size:16px;line-height:1.6;color:#333d4b;padding:16px 0;border-bottom:1px solid #e2e6ec;word-break:keep-all}
+
+/* How to */
+.ap-howto{background:var(--ap-paper)}
+.ap-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:56px}
+.ap-head p{font-size:17px;color:var(--ap-muted);margin:0;max-width:420px}
+.ap-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:step}
+.ap-steps li{background:#fff;border-radius:24px;padding:32px 28px 36px;counter-increment:step}
+.ap-steps li:before{content:counter(step,decimal-leading-zero);display:block;font-family:Play,sans-serif;font-size:15px;font-weight:700;letter-spacing:.06em;color:var(--ap-blue);margin-bottom:40px}
+.ap-steps h3{font-size:22px}
+.ap-steps p{font-size:16px;color:var(--ap-muted);margin:10px 0 0}
+
+/* Download (스테이션 안전성 구간과 같은 어두운 톤) */
+.ap-download{background:var(--ap-dark);color:#fff;overflow:hidden}
+.ap-download-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.ap-download h2{color:#fff}
+.ap-download .ap-eyebrow{color:#69a7ff}
+.ap-download p:not(.ap-eyebrow){font-size:18px;color:#b7c2ce;margin:24px 0 0}
+/* 두 화면을 비스듬히 눕혀 겹쳐 놓은 3D 구도 (뒤: 리포트, 앞: 슬롯 현황) */
+.ap-download-phones{position:relative;height:560px;perspective:1800px}
+.ap-download-phones img{position:absolute;width:250px;transform-style:preserve-3d;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55))}
+.ap-download-phones .back{left:calc(50% - 230px);top:110px;transform:rotateX(16deg) rotateY(-8deg) rotateZ(-18deg)}
+.ap-download-phones .front{left:calc(50% - 40px);top:-20px;transform:rotateX(16deg) rotateY(8deg) rotateZ(20deg)}
+
+@media(max-width:1000px){
+ .ap-wrap{width:calc(100% - 80px)}
+ .ap-hero-layout{grid-template-columns:1fr;min-height:0;gap:24px;padding-top:24px}
+ .ap-hero-copy{padding-bottom:0}
+ .ap-hero-phones{height:560px}
+ .ap-feature{grid-template-columns:1fr;gap:40px}
+ .ap-feature:nth-child(even) .ap-shot{order:0}
+ .ap-features{gap:96px}
+ .ap-steps{grid-template-columns:1fr 1fr;gap:16px}
+ .ap-head{flex-direction:column;align-items:flex-start;gap:20px}
+ .ap-download-layout{grid-template-columns:1fr;gap:56px}
+ .ap-download-phones{height:520px}
+}
+@media(max-width:759px){
+ .ap-wrap{width:calc(100% - 48px)}
+ .ap-section{padding-block:88px}
+ .ap-hero{padding-top:calc(var(--nav-height) + 16px)}
+ .ap-lead{font-size:17px}
+ .ap-lead br,.ap-feature p br{display:none}
+ .ap-hero-phones{height:420px}
+ .ap-hero-phones img{width:210px}
+ .ap-hero-phones .center{width:224px}
+ .ap-store{min-height:52px;padding:0 18px 0 14px}
+ .ap-store strong{font-size:16px}
+ .ap-statement-sub{font-size:17px;margin-top:28px}
+ .ap-feature p{font-size:16px}
+ .ap-shot img{width:min(62%,280px)}
+ .ap-steps{grid-template-columns:1fr}
+ .ap-steps li:before{margin-bottom:24px}
+ .ap-download p:not(.ap-eyebrow){font-size:16px}
+ .ap-download-phones{height:400px}
+ .ap-download-phones img{width:180px}
+ .ap-download-phones .back{left:calc(50% - 148px);top:80px}
+ .ap-download-phones .front{left:calc(50% - 36px);top:-10px}
+}

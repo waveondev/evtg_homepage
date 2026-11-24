@@ -1,0 +1,94 @@
+/* Section roles measured on toss.im: hero 60/72, chapter 56/67.2,
+   section 48/61.44, overlay 40/56, card 20/29.6, body 16/25.6. */
+:root{--type-hero:60px;--type-chapter:56px;--type-section:48px;--type-overlay:40px;--type-card:20px;--type-body:16px;--space-copy:24px;--space-section:200px}
+h1{font-size:var(--type-hero);line-height:1.2;letter-spacing:0}
+.story-section,.esg-story{padding:var(--space-section) 0}
+h2,.app-layout h2{font-size:var(--type-section);line-height:1.28;letter-spacing:-.02em}
+.swap-story>.wrap>h2,.company-story>.wrap>h2,.contact-section h2{font-size:var(--type-chapter);line-height:1.2}
+.kicker{font-size:16px;line-height:1.6;font-weight:500;letter-spacing:-.02em;margin:0 0 24px}
+.lead,.esg-story .lead,.caption-detail{font-size:var(--type-body);font-weight:400;line-height:1.6;color:#727780;margin-top:var(--space-copy)}
+.swap-scroll,.detail-grid,.company-pillars{margin-top:80px}
+.detail-grid h3,.company-pillars h3{font-size:var(--type-card);line-height:1.48;font-weight:700;color:#333840;letter-spacing:-.02em}
+.detail-grid figcaption{padding:20px 8px 0}.detail-grid p{font-size:16px;line-height:1.6;margin-top:12px}
+.company-pillars h3{margin-top:24px}.company-pillars p{margin:12px 0 0;line-height:1.6}.company-pillars span{font-weight:500;color:#727780}
+.swap-step h3{font-size:32px;line-height:1.4;color:#333840}.swap-step p{font-size:16px;line-height:1.6;margin-top:16px}.swap-number{font-size:16px;line-height:1.6;font-weight:500;margin-bottom:12px}.swap-steps{gap:64px}
+.lifestyle-scroll .lifestyle-copy h2{font-size:var(--type-overlay);line-height:1.4;letter-spacing:-.02em}
+.lifestyle-copy .kicker{font-size:16px;line-height:1.6;margin-bottom:24px}
+.lifestyle-scroll .lifestyle-copy .lifestyle-description{font-size:16px;line-height:1.6;margin-top:24px}
+.station-story{padding:160px 0}.station-story .button{margin-top:24px}
+.button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:14px 20px;border-radius:12px;font-size:16px;line-height:20px;font-weight:500;letter-spacing:-.02em;gap:12px;transition:background .2s,color .2s}
+.button:hover{transform:none;background:#1b64da}
+.station-story .button{background:rgba(7,25,76,.05);color:#333840}.station-story .button:hover{background:rgba(7,25,76,.1)}
+.text-link{display:inline-flex;align-items:center;gap:8px;border:0;padding:10px 0;color:#727780;font-size:16px;line-height:1.6;font-weight:400}.text-link span{margin-left:0}.text-link:hover{color:#333840}
+.contact-section{padding:200px 24px}.contact-section>p:not(.kicker){margin:24px 0 32px}.email{font-size:16px;line-height:1.6;margin-top:20px}
+.esg-points strong{font-size:20px;line-height:1.48;font-weight:700;color:#333840}.esg-points small{font-size:16px;line-height:1.6}
+.motion-caption h2{font-size:40px;line-height:1.4}.motion-caption .chapter{font-weight:500}.feature-data>strong{font-size:60px;line-height:1.2}
+@media(max-width:1100px) and (min-width:760px){.motion-caption h2{font-size:32px}.swap-step h3{font-size:28px}.feature-data>strong{font-size:52px}}
+@media(max-width:759px){
+:root{--type-hero:38px;--type-chapter:36px;--type-section:32px;--type-overlay:32px;--type-card:20px;--space-section:100px}
+h1{font-size:clamp(28px,7.2vw,38px);line-height:1.25}.story-section,.esg-story{padding:100px 0}.kicker{margin-bottom:20px}.lead,.esg-story .lead{margin-top:24px}
+.swap-scroll,.detail-grid,.company-pillars{margin-top:48px}.swap-step h3{font-size:24px}.is-scroll-ready .swap-step h3{font-size:clamp(17px,4.5vw,24px)}.swap-step p{font-size:16px}.is-scroll-ready .swap-step p{font-size:14px}
+.station-story{padding:100px 0 60px}.contact-section{padding:100px 24px}.detail-grid figcaption{padding:20px 0 0}
+.lifestyle-scroll .lifestyle-copy h2{font-size:32px}.lifestyle-copy .kicker{font-size:14px;margin-bottom:20px}.lifestyle-scroll .lifestyle-copy .lifestyle-description{margin-top:24px}
+.motion-caption h2{font-size:28px}.feature-data>strong{font-size:36px}
+}
+
+/* Larger, tighter headline on the lifestyle photograph. */
+#lifestyle .lifestyle-copy h2{font-size:clamp(48px,5.5vw,72px);line-height:1.12;letter-spacing:-.035em}
+#lifestyle .lifestyle-line{padding-bottom:.025em}
+@media(max-width:759px){#lifestyle .lifestyle-copy h2{font-size:clamp(32px,8.5vw,48px);line-height:1.15}}
+
+.battery-metrics{display:grid;grid-template-columns:1fr;gap:24px;margin-top:28px}
+.battery-caption .battery-metrics .feature-data{position:static;display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin:0;text-align:left}
+.battery-caption .battery-metrics .station-voltage>strong{font-size:clamp(26px,2.8vw,36px);white-space:nowrap;line-height:1.2}
+@media(max-width:759px){
+ .battery-caption .battery-metrics{grid-template-columns:1fr 1.5fr;gap:16px;margin-top:16px}
+ .battery-caption .battery-metrics .station-voltage>strong{font-size:24px}
+ .battery-caption .battery-metrics .feature-data>span{font-size:12px}
+}
+
+.design-metrics{display:grid;grid-template-columns:1fr 1fr;gap:22px 20px;margin-top:28px}
+.design-caption .design-metrics .feature-data{position:static;margin:0;display:flex;flex-direction:column;align-items:flex-start;gap:6px;min-width:0}
+.design-caption .design-metrics .feature-data>strong{font-size:clamp(32px,3.8vw,52px);line-height:1.15;white-space:nowrap}
+.design-caption .design-metrics .feature-data>strong>span{font-size:.48em;margin-left:2px}
+.design-caption .design-metrics .feature-data>span{font-size:14px;line-height:1.5}
+.design-metrics .carbon-metric{grid-column:1/-1}
+@media(max-width:759px){
+ .design-metrics{gap:12px 16px;margin-top:16px}
+ .design-caption .design-metrics .feature-data>strong{font-size:30px}
+ .design-caption .design-metrics .feature-data>span{font-size:12px}
+ .design-metrics .carbon-metric{grid-column:auto}
+ .design-metrics{grid-template-columns:1fr 1fr 1.25fr}
+}
+@media(max-height:680px) and (min-width:760px){.design-metrics{margin-top:18px;gap:16px}.design-caption .design-metrics .feature-data>strong{font-size:34px}}
+
+/* Equal hierarchy for both battery specifications. */
+.battery-caption .battery-metrics{gap:28px;margin-top:32px}
+.battery-caption .battery-metrics .feature-data>strong,
+.battery-caption .battery-metrics .station-voltage>strong{font-size:clamp(28px,3.2vw,44px);line-height:1.15;font-weight:700}
+.battery-caption .battery-metrics .feature-data>strong>span{font-size:.55em;margin-left:4px}
+.battery-caption .battery-metrics .feature-data>span{font-size:16px;line-height:1.5;color:#727780}
+@media(max-width:759px){
+ .battery-caption .battery-metrics{margin-top:20px;gap:16px}
+ .battery-caption .battery-metrics .feature-data>strong{font-size:24px}
+ .battery-caption .battery-metrics .feature-data>span{font-size:12px}
+}
+
+/* Product details fit below the header; short/mobile screens remain scrollable. */
+#product{padding:24px 0;min-height:calc(100svh - var(--nav-height,64px));height:auto;overflow:visible}
+#product .kicker{margin-bottom:8px}
+#product .section-heading{align-items:flex-end}
+#product h2{font-size:clamp(32px,4.8svh,44px);line-height:1.15;margin:0}
+#product .detail-grid{margin-top:24px;gap:32px}
+#product .detail-grid figure{margin:0;min-width:0}
+#product .detail-grid img{display:block;width:100%;height:clamp(180px,calc(100svh - var(--nav-height,64px) - 300px),440px);object-fit:cover}
+#product .detail-grid figcaption{padding:14px 0 0}
+#product .detail-grid h3{margin:0;font-size:20px;line-height:1.4}
+#product .detail-grid p{margin:6px 0 0;font-size:16px;line-height:1.5}
+@media(max-width:759px){
+ #product{padding:28px 0}
+ #product h2{font-size:32px}
+ #product .detail-grid{grid-template-columns:1fr;gap:28px;margin-top:24px}
+ #product .detail-grid img{height:clamp(220px,42svh,360px)}
+ #product .text-link{margin-top:12px}
+}

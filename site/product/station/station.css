@@ -1,0 +1,130 @@
+/* 이브이타고 스테이션 소개 페이지. 색·톤은 아이반 제품 페이지(ivan.css)와 같게 맞춤. */
+.st-page{--st-blue:#0068ff;--st-ink:#191f28;--st-muted:#667282;--st-line:#dce2e9;--st-paper:#f5f7fa;--st-dark:#10151b;font-family:Pretendard,-apple-system,sans-serif;color:var(--st-ink);background:#fff}
+.st-wrap{width:min(1280px,calc(100% - 96px));margin-inline:auto}
+.st-page h1,.st-page h2,.st-page h3{margin:0;white-space:normal;letter-spacing:-.045em;word-break:keep-all}
+.st-page h1{font-size:clamp(36px,3.3vw,58px);line-height:1.2;font-weight:750}
+.st-page h2{font-size:clamp(30px,3.4vw,52px);line-height:1.25;font-weight:750}
+.st-page h3{font-size:clamp(24px,2.1vw,32px);line-height:1.38;font-weight:700}
+.st-page p{line-height:1.75;word-break:keep-all}
+.st-page figure{margin:0}
+.st-page img{display:block;max-width:100%;height:auto}
+.st-page a:focus-visible{outline:3px solid var(--st-blue);outline-offset:5px}
+.st-page [id]{scroll-margin-top:100px}
+.st-skip{position:fixed;left:16px;top:-80px;z-index:200;background:#fff;padding:14px}.st-skip:focus{top:8px}
+.st-eyebrow{font-family:Play,Pretendard,sans-serif;color:var(--st-blue);font-size:13px;font-weight:700;letter-spacing:.09em;margin:0 0 22px}
+.st-section{padding-block:120px}
+
+/* Buttons (아이반 페이지 버튼과 동일) */
+.st-actions{display:flex;gap:24px;flex-wrap:wrap;align-items:center;margin-top:36px}
+.st-button{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;border-radius:12px;font-size:16px;font-weight:600;text-decoration:none;background:var(--st-blue);color:#fff}
+.st-button:hover{background:#0055d5}
+.st-link{display:inline-flex;align-items:center;min-height:48px;color:#333d4b;text-decoration:none;font-weight:600;border-bottom:1px solid #c9d2de}
+.st-link:hover{color:var(--st-ink);border-color:var(--st-ink)}
+
+/* Hero */
+.st-hero{background:var(--st-paper);padding-top:calc(var(--nav-height) + 24px)}
+.st-hero-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center;min-height:620px;padding-block:32px}
+.st-lead{font-size:19px;color:var(--st-muted);margin:26px 0 0}
+/* 영역은 460px 그대로 두고, 그림만 600px 크기로 보이게 확대 (레이아웃·여백에 영향 없음) */
+.st-hero-photo{justify-self:center;width:min(100%,460px)}
+/* 렌더 이미지의 바닥 그림자가 잘려 보이지 않도록 가장자리를 투명하게 흐림 */
+.st-hero-photo img{width:100%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 22%,#000 78%,transparent),linear-gradient(180deg,transparent,#000 6%,#000 84%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 22%,#000 78%,transparent),linear-gradient(180deg,transparent,#000 6%,#000 84%,transparent);mask-composite:intersect;transform:scale(1.3)}
+.st-stats{display:grid;grid-template-columns:repeat(4,1fr);margin-block:0;padding:32px 0 44px;border-top:1px solid var(--st-line)}
+.st-stats>div{padding:0 28px;border-left:1px solid var(--st-line)}
+.st-stats>div:first-child{padding-left:0;border:0}
+.st-stats dt{font-size:14px;color:var(--st-muted)}
+.st-stats dd{margin:12px 0 0;font-size:44px;font-weight:750;letter-spacing:-.04em;line-height:1.2}
+.st-stats dd span{font-size:20px;margin-left:5px}
+
+/* Statement */
+.st-statement{text-align:center}
+.st-statement-lines{font-size:clamp(32px,4.2vw,64px);font-weight:750;letter-spacing:-.05em;line-height:1.32;margin:0}
+.st-statement-lines span{display:block;color:#c3cad4}
+.st-statement-lines span:last-child{color:var(--st-ink)}
+.st-statement-sub{font-size:19px;color:var(--st-muted);margin:36px 0 0}
+.st-statement-sub strong{color:var(--st-ink);font-weight:700}
+
+/* Feature rows */
+.st-features{display:grid;gap:120px}
+.st-feature{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.st-feature:nth-child(even) .st-feature-photo{order:2}
+.st-feature-photo img{width:100%;aspect-ratio:4/3.4;object-fit:cover;border-radius:24px}
+.st-feature-photo.tall img{aspect-ratio:4/4.4;object-position:center 30%}
+.st-number{display:block;font-family:Play,sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--st-muted);margin-bottom:18px}
+.st-feature p{font-size:17px;color:var(--st-muted);margin:22px 0 0}
+.st-points{list-style:none;padding:0;margin:28px 0 0;border-top:1px solid #e2e6ec}
+.st-points li{font-size:16px;line-height:1.6;color:#333d4b;padding:16px 0;border-bottom:1px solid #e2e6ec;word-break:keep-all}
+.st-feature .st-big{display:flex;align-items:baseline;gap:6px;margin-top:28px;font-weight:750;letter-spacing:-.05em;color:var(--st-ink)}
+.st-big strong{font-size:88px;line-height:1}
+.st-big span{font-size:26px}
+
+/* How to */
+.st-howto{background:var(--st-paper)}
+.st-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:56px}
+.st-head p{font-size:17px;color:var(--st-muted);margin:0;max-width:420px}
+.st-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:step}
+.st-steps li{background:#fff;border-radius:24px;padding:32px 32px 36px;counter-increment:step}
+.st-steps li:before{content:counter(step,decimal-leading-zero);display:block;font-family:Play,sans-serif;font-size:15px;font-weight:700;letter-spacing:.06em;color:var(--st-blue);margin-bottom:40px}
+.st-steps h3{font-size:22px}
+.st-steps p{font-size:16px;color:var(--st-muted);margin:10px 0 0}
+
+/* Safety (아이반 배터리 구간과 같은 어두운 톤) */
+.st-safety{background:var(--st-dark);color:#fff}
+.st-safety h2{color:#fff}
+.st-safety .st-eyebrow{color:#69a7ff}
+.st-safety .st-head p{color:#b7c2ce}
+.st-safety-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+.st-safety-grid li{grid-column:span 2;padding:32px;border-radius:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
+.st-safety-grid li:nth-child(4),.st-safety-grid li:nth-child(5){grid-column:span 3}
+.st-safety-grid span{font-family:Play,sans-serif;font-size:13px;letter-spacing:.06em;color:#69a7ff}
+.st-safety-grid h3{font-size:21px;color:#fff;margin-top:18px}
+.st-safety-grid p{font-size:16px;color:#b7c2ce;margin:10px 0 0}
+
+/* Lifestyle */
+.st-life{position:relative;min-height:680px;display:flex;align-items:flex-end;color:#fff;isolation:isolate}
+.st-life>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;z-index:-2}
+.st-life:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(0,0,0,.65),transparent 70%),linear-gradient(90deg,rgba(0,0,0,.35),transparent 55%)}
+.st-life .st-wrap{padding-block:64px}
+.st-life h2{color:#fff}
+.st-life .st-eyebrow{color:#fff}
+.st-life p{font-size:18px;color:#eee;margin:20px 0 32px}
+
+/* Contact */
+.st-contact{text-align:center}
+.st-contact .st-eyebrow{margin:0 0 22px}
+.st-contact p:not(.st-eyebrow){font-size:18px;color:var(--st-muted);margin:24px 0 32px}
+.st-contact .st-email{display:block;width:fit-content;margin:20px auto 0;color:var(--st-muted);font-size:15px}
+
+@media(max-width:1000px){
+ .st-wrap{width:calc(100% - 80px)}
+ .st-hero-layout{grid-template-columns:1fr;min-height:0;gap:48px;padding-top:24px}
+ .st-hero-photo{width:min(100%,540px)}
+ .st-hero-photo img{transform:none}
+ .st-stats{grid-template-columns:repeat(2,1fr);row-gap:28px}
+ .st-stats>div:nth-child(3){padding-left:0;border:0}
+ .st-feature{grid-template-columns:1fr;gap:40px}
+ .st-feature:nth-child(even) .st-feature-photo{order:0}
+ .st-features{gap:96px}
+ .st-steps{grid-template-columns:1fr;gap:16px}
+ .st-safety-grid{grid-template-columns:1fr 1fr}
+ .st-safety-grid li,.st-safety-grid li:nth-child(4),.st-safety-grid li:nth-child(5){grid-column:span 1}
+ .st-safety-grid li:nth-child(5){grid-column:span 2}
+ .st-head{flex-direction:column;align-items:flex-start;gap:20px}
+}
+@media(max-width:759px){
+ .st-wrap{width:calc(100% - 48px)}
+ .st-section{padding-block:88px}
+ .st-hero{padding-top:calc(var(--nav-height) + 16px)}
+ .st-lead{font-size:17px}
+ .st-stats dd{font-size:34px}
+ .st-stats>div{padding:0 16px}
+ .st-statement-sub{font-size:17px;margin-top:28px}
+ .st-feature p{font-size:16px}
+ .st-big strong{font-size:68px}
+ .st-steps li:before{margin-bottom:24px}
+ .st-safety-grid{grid-template-columns:1fr}
+ .st-safety-grid li,.st-safety-grid li:nth-child(5){grid-column:span 1;padding:28px 24px}
+ .st-life{min-height:540px}
+ .st-life .st-wrap{padding-block:48px}
+ .st-life p,.st-contact p{font-size:16px}
+}

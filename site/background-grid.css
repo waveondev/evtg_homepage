@@ -1,0 +1,7 @@
+/* Lines are painted with each surface, below every child image and text layer. */
+.background-grid{display:none}
+:root{--grid-edge:max(80px,calc((100vw - 1120px)/2));--grid-line:rgba(28,31,37,.045);--grid-paint:linear-gradient(to right,transparent calc(var(--grid-edge) - 1px),var(--grid-line) calc(var(--grid-edge) - 1px),var(--grid-line) var(--grid-edge),transparent var(--grid-edge),transparent calc(50% - .5px),var(--grid-line) calc(50% - .5px),var(--grid-line) calc(50% + .5px),transparent calc(50% + .5px),transparent calc(100% - var(--grid-edge)),var(--grid-line) calc(100% - var(--grid-edge)),var(--grid-line) calc(100% - var(--grid-edge) + 1px),transparent calc(100% - var(--grid-edge) + 1px))}
+body,.motion>.screen,main>section,#company,#esg,.lifestyle-scroll{background-image:var(--grid-paint);background-size:100vw 100%;background-position:center top;background-attachment:fixed}
+@media(max-width:1100px){:root{--grid-edge:40px}}
+@media(max-width:759px){:root{--grid-edge:24px}}
+@media print{body,.motion>.screen,main>section,#company,#esg,.lifestyle-scroll{background-image:none}}

@@ -1,0 +1,1 @@
+if(new URLSearchParams(location.search).get('lang')==='en'){document.querySelectorAll('[data-en]').forEach(el=>el.innerHTML=el.dataset.en);document.querySelectorAll('[data-en-alt]').forEach(el=>el.alt=el.dataset.enAlt);document.querySelectorAll('[data-en-aria]').forEach(el=>el.setAttribute('aria-label',el.dataset.enAria));document.title='EVTAGO APP — EVTAGO';}

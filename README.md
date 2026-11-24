@@ -1,35 +1,46 @@
-# v0-esg-electric-scooter-website
+# 이브이타고 홈페이지 v2
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
+제작업체 전달본(`../dist`)의 **화면은 그대로**, 동작·로딩을 다듬고 **S3 + CloudFront** 로 배포할 수 있게 정리한 버전입니다.
+(원본 `../dist` 는 수정하지 않았습니다.)
 
-## Built with v0
-
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
-
-[Continue working on v0 →](https://v0.app/chat/projects/prj_nt2FIjHlQdUC14WxnVEtedcWHbqi)
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+```
+v2/
+├─ site/            ← 소스(여기를 수정). 순수 HTML/CSS/JS, 프레임워크 없음
+├─ tools/
+│   ├─ build.mjs        site/ → dist/ 빌드 (CSS·JS 묶음 + 해시 파일명 + preload, 깨진 링크 검사)
+│   └─ subset-fonts.py  폰트 서브셋 생성 (문구에 새 글자를 넣었을 때만 필요)
+├─ deploy/          ← S3/CloudFront 배포 스크립트·설정·가이드 (README-DEPLOY.md 먼저 읽기)
+└─ dist/            ← 빌드 결과물 (업로드 대상, 자동 생성)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 쓰는 법
+```bash
+cd v2
+npm run build          # dist/ 생성 (Node 18+ 만 있으면 됨, 설치할 패키지 없음)
+npm run serve          # http://localhost:8080 에서 확인 (터미널에 폰용 주소도 표시됨)
+BUCKET=... DISTRIBUTION_ID=... ./deploy/deploy.sh   # 배포
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 무엇이 달라졌나
+| 구분 | 변경 | 효과 |
+|---|---|---|
+| 히어로 스크롤 애니메이션 (`site/app.js`) | 프레임 다운로드와 디코딩 분리 · 실제로 표시되는 프레임만 저우선순위 선로딩 · `<canvas>` 렌더 · 프레임당 강제 레이아웃 제거 · 값 캐시 | 스크롤 중 로딩 대기·끊김 감소, 프레임당 JS 처리시간 약 60% 감소 |
+| 휠 제스처 | 트랙패드 관성 중에도 새 플릭을 인식 | 연속 스크롤 시 "씹히는" 동작 감소 |
+| 섹션 단위 이동 (`pager.js`, 홈 전용) | 휠·마우스 드래그·터치 스와이프·키보드 모두 "한 동작 = 한 칸"으로 통일. 칸 목록은 `EvtagoPager.stops()` 로 확인. 주소 뒤 `?pager=off` 로 기존 일반 스크롤 확인 가능 | PC/모바일/입력 방식 상관없이 동일한 느낌 |
+| 폰트 | Pretendard 전체(웨이트당 ~780KB, 합 6.7MB) → 사용 글자 서브셋 woff2(웨이트당 ~175KB), Play ttf → woff2 | 폰트 전송량 약 1/4 |
+| 파일 정리 | 참조되지 않는 프레임 폴더·이미지·구형 폰트 제거 (142MB → 50MB) | 업로드·보관 용량 감소 |
+| 빌드 | CSS 17개→1개, JS 11개→1개(홈 기준), 해시 파일명, 영구 캐시 | 요청 수·재방문 속도 개선 |
+| 404 | `404.html` 추가 (CloudFront 오류 응답용) | — |
 
-## Learn More
+화면(레이아웃·문구·수치·색)은 변경하지 않았습니다. 원본과 52개 스크롤 지점(PC/모바일)을 픽셀 비교했고,
+히어로 오토바이 영역에 캔버스 리샘플링으로 인한 극미한 차이(평균 0.2/255)만 있습니다.
 
-To learn more, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
-
-<a href="https://v0.app/chat/api/kiro/clone/waveondev/v0-esg-electric-scooter-website" alt="Open in Kiro"><img src="https://pdgvvgmkdvyeydso.public.blob.vercel-storage.com/open%20in%20kiro.svg?sanitize=true" /></a>
+## 알아둘 점
+- **히어로 렌더 방식 비교**: 주소 뒤에 `?hero=img` 를 붙이면 예전 방식(`<img>` 교체)으로 동작합니다. 기기별로 비교해 볼 때 쓰세요.
+- **문구를 수정해 새 글자(드문 한글 등)가 필요하면** `tools/subset-fonts.py` 로 폰트를 다시 만드세요. (KS X 1001 한글 2,350자는 이미 포함)
+- 히어로 프레임(`assets/final`, `assets/final-clean`)을 교체한다면 **파일 수/이름 규칙(frame_0001~0540)** 을 유지하세요.
+- 프레임을 교체하면 `app.js` 상단의 중복 프레임 표(`canonical`, 내용이 똑같은 연속 프레임 구간)를 다시 확인하세요.
+- 데이터 절약 모드/2G 에서는 프레임 선로딩을 하지 않습니다.
+- 재생 시 3프레임마다 한 장이 표시되므로, 그 프레임과 장면이 멈추는 1·180·540 근처 프레임(중복 제외 177장, 약 6.3MB)만 미리 받습니다. 사이 프레임까지 받는 것은 120Hz 이상 화면의 PC 뿐입니다(484장, 약 17MB). 받을 프레임 간격은 `app.js` 의 `FRAME_STEP` 입니다.
+- 폭 759px 이하에서는 사진도 `assets/story/m/` 의 작은 파일을 받습니다(`tools/build.mjs` 가 `srcset` 을 넣음). `assets/story` 의 사진을 교체하면 `m/` 의 같은 이름 파일도 함께 다시 만들어야 합니다.
+- 폭 759px 이하로 접속하면 `assets/final-800` 의 800px 프레임을 씁니다. 이 폴더에는 위 177장만 있으므로, `FRAME_STEP` 이나 `isKey` 를 바꾸면 이 폴더도 다시 만들어야 합니다.

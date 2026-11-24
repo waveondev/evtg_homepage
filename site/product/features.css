@@ -1,0 +1,98 @@
+/* Four editorial cards in a horizontal strip, matching the supplied reference. */
+#design{--company-tone:255;background:rgb(var(--company-tone),var(--company-tone),var(--company-tone));padding:0;text-align:left;position:relative}
+#design .company-viewport{padding:64px 0;overflow:hidden}
+#design .wrap{max-width:1440px;padding:0 48px;margin:auto}
+#design .kicker{margin-bottom:16px}
+#design h2{font-size:clamp(32px,3.4vw,52px);line-height:1.25;letter-spacing:-.035em;margin:0;color:#1c1f25}
+#design .company-carousel{overflow-x:auto;scrollbar-width:none;scroll-snap-type:x mandatory;outline-offset:-4px;margin-top:48px;padding:0 max(48px,calc((100vw - 1344px)/2))}
+#design .company-carousel::-webkit-scrollbar{display:none}
+#design .company-pillars{display:flex;gap:24px;margin:0;width:max-content;max-width:none;text-align:left}
+#design .company-pillars article{flex:0 0 clamp(280px,29vw,440px);width:clamp(280px,29vw,440px);padding:0;border:0;scroll-snap-align:start}
+#design .company-card{display:block;height:100%;padding:14px;background:#fff;border-radius:40px;color:inherit;text-decoration:none}
+#design .company-art{position:relative;aspect-ratio:1/1.08;border-radius:28px;overflow:hidden;background:#e9ebef}
+#design .company-art img{width:100%;height:100%;object-fit:cover;display:block}
+#design .company-badge{font-family:Pretendard,sans-serif;position:absolute;right:16px;top:16px;border-radius:24px;padding:9px 13px;background:#0068ff;font-size:13px;line-height:1.3;color:#fff;font-weight:600}
+#design .company-card-copy{padding:24px 18px 20px}
+#design .company-card-copy>span{font:700 11px/1.5 'Play',sans-serif;letter-spacing:.02em;color:#8a9099}
+#design .company-card-copy h3{font-size:23px;line-height:1.4;margin:8px 0 0;color:#1c1f25;letter-spacing:-.025em}
+#design .company-card-copy h3 span{float:right;font-size:22px;font-weight:400;color:#727780}
+#design .company-card-copy p{font-size:15px;line-height:1.55;color:#727780;margin:16px 0 0}
+#design .company-controls{display:flex;justify-content:flex-end;gap:10px;margin:24px 48px 0}
+#design .company-controls button{width:44px;height:44px;border:0;border-radius:50%;background:#e3e5e8;font-size:22px;color:#333840;cursor:pointer}
+#design .company-controls button:disabled{opacity:.3;cursor:default}
+#design.is-horizontal .company-viewport{position:sticky;top:var(--nav-height,64px);height:calc(100svh - var(--nav-height,64px));padding-top:28px}
+#design.is-horizontal .company-carousel{margin-top:28px}
+#design.is-horizontal .company-art{aspect-ratio:auto;height:clamp(160px,calc(100svh - 420px),440px)}
+#design.is-horizontal .company-controls{margin-top:16px}
+@media(max-width:759px){
+ #design .company-viewport{padding:64px 0}
+ #design .wrap{padding:0 24px}
+ #design .company-carousel{padding:0 24px;margin-top:32px}
+ #design .company-pillars{gap:16px}
+ #design .company-pillars article{flex-basis:82vw;width:82vw}
+ #design .company-card{padding:12px;border-radius:32px}
+ #design .company-art{border-radius:22px}
+ #design .company-card-copy{padding:20px 12px}
+ #design .company-controls{margin-right:24px}
+}
+@media(prefers-reduced-motion:reduce){#design{background:#f5f5f5}}
+#design.is-horizontal .kicker{display:none}
+#design.is-horizontal h2{font-size:32px;line-height:1.2}
+#design.is-horizontal .company-art{height:clamp(160px,calc(100svh - 500px),440px)}
+#design .company-carousel{scroll-padding-inline:max(48px,calc((100vw - 1344px)/2))}
+#design.is-horizontal .company-carousel{scroll-snap-type:none}
+@media(max-width:759px){#design .company-carousel{scroll-padding-inline:24px}}
+
+/* Keep the subjects in frame when the photographic assets fill the service cards. */
+#design .company-pillars>article:nth-child(1) img{object-position:42% 58%}
+#design .company-pillars>article:nth-child(2) img{object-position:50% 48%}
+#design .company-pillars>article:nth-child(3) img{object-position:50% 60%}
+#design .company-pillars>article:nth-child(4) img{object-position:48% 65%}
+
+/* Center the entire heading, cards and controls group within the pinned viewport. */
+#design.is-horizontal .company-viewport{display:flex;flex-direction:column;justify-content:center;padding-block:32px}
+#design.is-horizontal .company-viewport>.wrap{width:100%;margin:0 auto;flex-shrink:0}
+#design.is-horizontal .company-carousel,#design.is-horizontal .company-controls{flex-shrink:0}
+
+/* Keep the card in its rail; animate its image and directional cue. */
+#design .company-card{transition:background-color .3s ease,box-shadow .3s ease}
+#design .company-art img{transition:transform .7s cubic-bezier(.22,1,.36,1),filter .5s ease}
+#design .company-card-copy h3 span{transition:transform .3s ease,color .3s ease}
+#design .company-card:focus-visible{outline:2px solid #0068ff;outline-offset:-2px;background:#f8faff}
+#design .company-card:focus-visible .company-art img{transform:scale(1.045)}
+#design .company-card:focus-visible h3 span{transform:translate(3px,-3px);color:#0068ff}
+@media(hover:hover) and (pointer:fine){#design .company-card:hover{background:#f8faff;box-shadow:inset 0 0 0 1px #e5edfa}#design .company-card:hover .company-art img{transform:scale(1.045);filter:brightness(1.035)}#design .company-card:hover h3 span{transform:translate(3px,-3px);color:#0068ff}}
+@media(prefers-reduced-motion:reduce){#design .company-card,#design .company-art img,#design .company-card-copy h3 span{transition:none!important}#design .company-card:hover .company-art img,#design .company-card:focus-visible .company-art img,#design .company-card:hover h3 span,#design .company-card:focus-visible h3 span{transform:none}}
+
+/* Align the heading and carousel origin with the shared background guide. */
+#design .wrap{max-width:none;width:100%;padding-inline:var(--grid-edge)}
+#design .company-carousel{padding-inline:var(--grid-edge);scroll-padding-inline:var(--grid-edge)}
+#design .company-controls{margin-inline:var(--grid-edge)}
+
+/* Fill the mobile screen with the heading, card rail and controls. */
+@media(max-width:759px){
+ #design .company-viewport{display:flex;flex-direction:column;min-height:calc(100svh - var(--nav-height,60px));height:calc(100svh - var(--nav-height,60px));padding:24px 0;overflow:hidden}
+ #design .company-viewport>.wrap{flex:none;margin:0;width:100%}
+ #design .kicker{margin-bottom:12px}
+ #design .company-carousel{flex:1;min-height:0;margin-top:24px;overflow-y:hidden}
+ #design .company-pillars{height:100%}
+ #design .company-pillars article{height:100%;min-height:0}
+ #design .company-card{display:flex;flex-direction:column;height:100%;min-height:0}
+ #design .company-art{flex:1;min-height:120px;aspect-ratio:auto}
+ #design .company-card-copy{flex:none;padding:18px 12px 16px}
+ #design .company-card-copy p{margin-top:12px}
+ #design .company-controls{flex:none;margin-top:20px}
+}
+@media(max-width:759px) and (max-height:700px){
+ #design .company-viewport{height:auto;min-height:calc(100svh - var(--nav-height,60px))}
+ #design .company-carousel{flex:none}
+ #design .company-art{flex:none;height:180px}
+}
+
+@media(max-width:759px){
+ #design.is-mobile-pinned .company-viewport{position:sticky;top:var(--nav-height,60px)}
+ #design.is-mobile-pinned .company-carousel{scroll-snap-type:none;scroll-behavior:auto}
+}
+
+#design{--grid-edge:max(48px,calc((100vw - 1200px)/2));border:0}#design .company-card-copy{min-height:195px}#design .company-card-copy h3{font-size:22px}#design .company-card-copy p{word-break:keep-all}#design .company-art img{object-position:center!important}#design .company-controls button:focus-visible{outline:2px solid #0068ff;outline-offset:3px}#design.is-horizontal .kicker{display:block}#design .company-card{cursor:default}@media(max-width:759px){#design{--grid-edge:20px}#design .company-card-copy{min-height:184px}#design .company-card-copy h3{font-size:21px}}
+@media(min-width:760px){#design .company-art,#design.is-horizontal .company-art{aspect-ratio:auto;height:clamp(180px,calc(100svh - 540px),360px)}#design .company-card-copy{min-height:180px}#design .company-viewport>.wrap{padding-top:0}}

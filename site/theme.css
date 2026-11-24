@@ -1,0 +1,61 @@
+/* Typography and neutral palette measured from toss.im, September 2026. */
+:root{--ink:#1c1f25;--muted:#727780;--green:#0068ff;--paper:#f7f8fa;--text-secondary:#333840;--blue:#0068ff;--nav-height:64px}
+html,body{color:var(--ink);background:#fff}
+body{font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif;font-size:16px;line-height:1.6;letter-spacing:-.02em}
+h1,h2,h3,.motion-caption h2,.feature-data>strong{font-weight:700;letter-spacing:-.02em;color:var(--ink)}
+h1{font-size:clamp(40px,4.8vw,60px);line-height:1.2;letter-spacing:0}
+h2,.app-layout h2{font-size:48px;line-height:1.28}
+h3,.detail-grid h3,.company-pillars h3{font-size:24px;line-height:1.4}
+.eyebrow{font-size:18px;line-height:1.6;font-weight:600;letter-spacing:-.02em;color:var(--text-secondary);margin-bottom:16px}
+.intro{padding-top:32px}
+.description{font-size:16px;line-height:1.6;letter-spacing:-.02em;color:var(--muted);margin-top:24px}
+.wrap{max-width:1280px;padding-left:80px;padding-right:80px}
+.nav-inner{max-width:1280px;padding:0 80px}
+.nav-links a{font-size:16px;line-height:1.6;font-weight:500;letter-spacing:-.02em;color:var(--text-secondary);padding:10px 16px}
+.nav-links a:hover{background:#f2f4f6;color:var(--ink)}
+.story-section{padding:160px 0}
+.kicker{font-size:16px;line-height:1.6;letter-spacing:-.02em;font-weight:600;color:var(--blue);margin-bottom:24px}
+.lead,.esg-story .lead{font-size:16px;line-height:1.6;letter-spacing:-.02em;font-weight:400;color:var(--muted);margin-top:32px}
+.swap-story,.company-story{background:var(--paper)}
+.swap-grid,.detail-grid{margin-top:64px;gap:32px}
+.swap-grid img,.detail-grid img{border-radius:24px}
+.swap-grid figcaption{padding:24px 0;gap:20px;font-size:20px;line-height:1.5;color:var(--muted)}
+.swap-grid figcaption b{font-size:16px;line-height:1.6;color:var(--blue)}
+.swap-grid strong{color:var(--ink);font-weight:600}
+.detail-grid figcaption{padding:24px 0}.detail-grid p{font-size:16px;line-height:1.6;margin-top:12px;color:var(--muted)}
+.station-story{background:#fff;padding:120px 0}.station-layout,.app-layout,.esg-layout{gap:80px}
+.station-story .button{margin-top:32px}.station-render figcaption{font-size:14px;line-height:1.6;letter-spacing:-.02em;color:var(--muted)}
+.app-story{background:var(--paper)}
+.company-pillars{margin-top:64px;gap:32px}.company-pillars article{border-color:#e5e8eb;padding-top:24px}
+.company-pillars span{font-size:14px;line-height:1.6;letter-spacing:-.02em;color:var(--blue)}
+.company-pillars h3{margin-top:24px}.company-pillars p{font-size:16px;line-height:1.6;color:var(--muted)}
+.esg-story{background:#fff;color:var(--ink);padding:160px 0}
+.esg-story .kicker{color:var(--blue)}.esg-points{margin-top:40px}.esg-points p{border-color:#e5e8eb;padding:24px 0;column-gap:16px;row-gap:8px}
+.esg-points span{color:var(--blue);font-size:28px;line-height:1.3;font-weight:600}.esg-points strong{font-size:20px;line-height:1.4;font-weight:600;color:var(--ink)}.esg-points small{font-size:16px;line-height:1.6;color:var(--muted)}
+.lifestyle{margin:24px;border-radius:40px;clip-path:inset(0 round 40px)}.lifestyle h2,.lifestyle .kicker{color:#fff}.lifestyle p:last-child{font-size:16px;line-height:1.6;margin-top:32px}
+.contact-section{background:var(--paper);padding:160px 24px}.contact-section>p:not(.kicker){font-size:16px;line-height:1.6;color:var(--muted);margin:32px 0}
+.button{background:var(--blue);color:#fff;padding:14px 20px;min-height:52px;border-radius:12px;font-size:16px;line-height:1.5;font-weight:600;gap:24px}
+.button:hover{background:#1b64da}.text-link{color:var(--blue);border-color:#dbe8ff;font-size:16px;line-height:1.6}.email{font-size:16px;color:var(--muted);margin-top:24px}
+footer{background:#f7f8fa;border-top:1px solid #e5e8eb;padding:64px 0 40px;font-size:14px;line-height:1.6;color:var(--muted)}
+.footer-top{margin-bottom:32px}.footer-top>div{font-size:16px}.footer-top>div,.footer-bottom>div{gap:24px}
+.motion-caption h2{font-size:40px;line-height:1.4}.motion-caption h2 span{color:#8b95a1}
+.motion-caption .chapter{font-size:16px;line-height:1.6;letter-spacing:-.02em;font-weight:600;color:var(--blue);margin-bottom:16px}
+.caption-detail{font-size:16px;line-height:1.6;letter-spacing:-.02em;color:var(--muted);margin-top:24px}
+.feature-data{margin-top:32px;gap:8px}.feature-data>strong{font-size:64px;line-height:1.2}.feature-data>span{font-size:16px;line-height:1.6;color:var(--muted)}
+.extraction-note{font-size:16px;line-height:1.6;color:var(--text-secondary)}.motion-progress i{background:var(--blue)}
+@media(max-width:1100px){.wrap,.nav-inner{padding-left:40px;padding-right:40px}.station-layout,.app-layout,.esg-layout{gap:40px}.motion-caption h2{font-size:32px;line-height:1.35}.feature-data>strong{font-size:52px}}
+@media(max-width:759px){
+ :root{--nav-height:60px}.wrap,.nav-inner{padding-left:24px;padding-right:24px}.nav-links a{font-size:14px;padding:10px}
+ .intro{padding:24px 20px 0}.eyebrow{font-size:16px;margin-bottom:16px}h1{font-size:clamp(22px,5.6vw,38px);line-height:1.3;letter-spacing:-.02em}
+ .description{font-size:16px;line-height:1.6;margin-top:20px}
+ h2,.app-layout h2{font-size:32px;line-height:1.35;letter-spacing:-.02em}h3,.detail-grid h3,.company-pillars h3{font-size:22px;line-height:1.4}
+ .story-section,.esg-story{padding:88px 0}.kicker{font-size:16px;margin-bottom:20px}.lead,.esg-story .lead{font-size:16px;line-height:1.6;margin-top:24px}
+ .swap-grid,.detail-grid,.company-pillars{margin-top:40px;gap:32px}.swap-grid figcaption{font-size:18px;padding:20px 0 0}
+ .station-story{padding:88px 0 48px}.station-layout,.app-layout,.esg-layout{gap:40px}.station-render img{height:440px}
+ .lifestyle{margin:16px;border-radius:24px;clip-path:inset(0 round 24px)}.lifestyle p:last-child{font-size:16px;margin-top:24px}
+ .company-pillars h3{margin-top:20px}.company-pillars p{font-size:16px}.esg-points strong{font-size:18px}.esg-points small{font-size:16px}
+ .contact-section{padding:88px 24px}.contact-section>p:not(.kicker){font-size:16px;margin:24px 0 32px}
+ .motion-caption h2{font-size:28px;line-height:1.35}.motion-caption .chapter{font-size:14px;margin-bottom:12px}.caption-detail{font-size:16px;line-height:1.6;margin-top:16px}
+ .feature-data,.battery-caption .feature-data{margin-top:16px}.feature-data>strong{font-size:36px;line-height:1.2}.feature-data>span{font-size:14px}.extraction-note{font-size:14px}
+ footer{padding:48px 0 32px}
+}

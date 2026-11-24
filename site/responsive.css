@@ -1,0 +1,88 @@
+/* Keep readable, accessible content across narrow and short viewports. */
+.nav-language button{min-height:44px}
+.station-layout>div,.app-layout>div,.esg-panel-copy{min-width:0;overflow-wrap:break-word}
+.swap-scroll.is-compact{height:auto;margin-block:32px 64px}
+.is-compact .swap-stage{position:relative;top:auto;height:auto;padding:0;align-items:center}
+.is-compact .swap-visual{height:clamp(240px,60svh,440px);aspect-ratio:auto}
+.is-compact .swap-photo{position:absolute;inset:0}
+.is-compact .swap-photo:last-child{opacity:var(--swap-mix,0);transition:opacity .45s ease}
+.is-compact .swap-steps{opacity:1;transform:none;gap:0;padding:0}
+.is-compact .swap-step{border-top:1px solid #e8ebf0;padding:16px 0}
+.is-compact .swap-step:last-child{border-bottom:1px solid #e8ebf0}
+@media(max-width:759px){
+ .side-progress{display:none}
+ .stage .motion-caption .design-metrics,.stage .motion-caption .battery-metrics{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)}
+ .stage .motion-caption .feature-data>span{white-space:normal;overflow-wrap:break-word}
+ .stage .motion-caption .feature-data>strong{font-size:clamp(25.92px,7.56vw,32.4px)}
+ .stage .motion-caption .station-voltage>strong{font-size:clamp(24.84px,7.344vw,30.24px)}
+ .is-scroll-ready .swap-visual{min-height:140px}
+ .is-compact .swap-stage{display:flex;flex-direction:column;gap:24px;align-items:stretch}
+ .is-compact .swap-visual{flex:none;height:clamp(220px,48svh,380px)}
+ .is-compact .swap-steps{display:flex;flex-direction:column}
+ .is-compact .swap-step h3{font-size:22px}
+ .product-name{bottom:16px}.scroll-hint{max-width:55%;font-size:11px}
+ .company-controls button{min-width:44px;min-height:44px}
+ html[lang="en"] .intro h1{font-size:clamp(30px,8.5vw,56px);line-height:1.1}
+ html[lang="en"] .intro .description{font-size:13px;line-height:1.6}
+ html[lang="en"] .battery-title-view h2{font-size:clamp(18px,5.6vw,38px)}
+ html[lang="en"] .stage .motion-caption h2 .headline-focus{font-size:28px}
+ html[lang="en"] .stage .design-caption h2 .headline-focus{font-size:44px}
+ html[lang="en"] .stage .motion-caption .headline-context{font-size:14px}
+ html[lang="en"] .nav-inner{gap:6px}
+ html[lang="en"] .nav-links a{font-size:12px;padding-inline:4px}
+}
+@media(min-width:760px) and (max-width:1000px){
+ #network .station-layout,.app-story .app-layout{padding:24px;gap:24px}
+ #network .station-layout>div,.app-story .app-layout>div{padding:40px 8px}
+ .station-layout h2,.app-layout h2{font-size:32px}
+ .station-layout .lead,.app-layout .lead{font-size:16px}
+ .esg-panel-toggle{padding:28px 24px}.esg-panel-copy>strong{font-size:22px}.esg-panel-detail{font-size:14px}
+}
+@media(max-height:500px) and (min-width:760px){
+ .side-progress button{height:22px}
+ .screen>.intro{top:24px}.intro .eyebrow{font-size:14px;margin-bottom:12px}.intro h1{font-size:44px}.intro .description{font-size:12px;margin-top:12px}
+ .stage .motion-caption{top:16%}.stage .motion-caption h2 .headline-context{font-size:16px}.stage .motion-caption h2 .headline-focus{font-size:30px}.stage .design-caption h2 .headline-focus{font-size:44px}
+ .stage .motion-caption .design-metrics,.stage .motion-caption .battery-metrics{margin-top:20px;padding-top:16px}
+ .stage .motion-caption .feature-data>strong,.stage .motion-caption .station-voltage>strong{font-size:29.16px}
+}
+@media(prefers-reduced-motion:reduce){.esg-panel img,.swap-photo{transition:none!important}}
+
+.swap-step h3 button{word-break:keep-all;overflow-wrap:break-word}
+
+/* Lower the introduction and let the larger motorcycle extend below the opening. */
+@media(prefers-reduced-motion:no-preference){
+ .screen>.intro{top:clamp(56px,13svh,150px)}
+ .intro .eyebrow{font-size:16px;margin-bottom:18px}
+ .intro h1{font-size:clamp(48px,6.6vw,97px);line-height:1.08}
+ .intro .description{font-size:14px;line-height:1.6;margin-top:20px}
+ @media(max-width:759px){.screen>.intro{top:clamp(48px,9svh,80px)}.intro .eyebrow{font-size:14px;margin-bottom:16px}.intro h1{font-size:clamp(39px,10.45vw,62px)}.intro .description{font-size:12px;margin-top:16px}}
+ @media(max-height:500px) and (min-width:760px){.screen>.intro{top:16px}.intro .eyebrow{font-size:12px;margin-bottom:8px}.intro h1{font-size:32px}.intro .description{font-size:11px;line-height:1.4;margin-top:10px}}
+}
+
+/* Numeric typography and balanced product columns. */
+.stage .design-caption .headline-focus,.stage .motion-caption .feature-data>strong{font-family:Play,sans-serif;font-weight:700;letter-spacing:-.045em;font-variant-numeric:lining-nums tabular-nums}
+.stage .design-caption .headline-focus{display:flex;align-items:center;gap:.16em}
+/* Align optically with Pretendard numerals rather than the font line box. */
+.metric-plus{width:.38em;height:.38em;flex:none;color:#0068ff;align-self:center;transform:translateY(-.08em)}
+.stage .motion-caption .feature-data>strong>span{font-size:.65em;font-weight:700;color:inherit;letter-spacing:-.02em;margin-left:.08em}
+.stage .motion-caption .feature-data>strong>.metric-separator{display:inline-block;font-size:.72em;font-weight:300;color:#e8e8e8;margin:0 .23em}
+@media(min-width:760px){#product .detail-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Share value/description rows so differently sized values cannot offset labels. */
+.stage .motion-caption .design-metrics,.stage .motion-caption .battery-metrics{grid-template-rows:auto auto;row-gap:8px}
+.stage .motion-caption .feature-data{display:grid;grid-row:1 / span 2;grid-template-rows:subgrid;min-width:0;align-items:stretch}
+.stage .motion-caption .feature-data>strong{align-self:end;margin:0}
+.stage .motion-caption .feature-data>span{align-self:stretch;margin:0;line-height:1.5;min-height:1.5em;font-weight:400}
+
+/* Keep matching section labels close to their headings. */
+body main .kicker,body .station-layout .kicker,body .app-layout .kicker,body #lifestyle .lifestyle-copy .kicker,body #company .kicker,body #esg .esg-heading .kicker{margin-bottom:12px}
+
+body#home .site-header{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none}
+body#home .site-header.has-scrolled{background:#fff;box-shadow:0 1px 0 rgba(25,31,40,.08)}
+
+/* Centered product with a restrained technical callout. */
+.design-callout{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;opacity:0;overflow:visible}
+.design-callout path{fill:none;stroke:#aeb7c3;stroke-width:1;vector-effect:non-scaling-stroke}
+.design-callout circle{fill:#8b95a1}
+@media(min-width:760px){.stage .design-caption{top:10%}}
+@media(prefers-reduced-motion:reduce){.design-callout{display:none}}

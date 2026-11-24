@@ -1,0 +1,73 @@
+
+.site-header .nav-links a{font-size:16px}
+.site-header .nav-language button,.site-header .nav-language>span{font-size:14px}
+.mobile-nav-panel{display:contents}
+.nav-toggle{display:none}
+@media(max-width:759px){
+ .site-header .nav-inner{display:flex;justify-content:space-between;gap:16px;padding-inline:20px}
+ .site-header .brand{display:flex;align-items:center;min-height:44px}
+ .site-header .nav-toggle{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:44px;padding:10px;border:0;border-radius:10px;background:transparent;color:#191f28;cursor:pointer;flex:none}
+ .nav-toggle span{display:block;width:22px;height:2px;background:currentColor;transition:transform .2s ease,opacity .2s ease}
+ .menu-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+ .menu-open .nav-toggle span:nth-child(2){opacity:0}
+ .menu-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+ .site-header .mobile-nav-panel{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:12px;padding:12px 20px 20px;background:#fff;border-top:1px solid #f2f4f6;box-shadow:0 12px 20px rgba(25,31,40,.08);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-8px);transition:opacity .2s ease,transform .2s ease,visibility .2s;max-height:calc(100dvh - var(--nav-height));overflow-y:auto}
+ .site-header.menu-open .mobile-nav-panel{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+ body .site-header.menu-open,body#home .site-header.menu-open{background:#fff}
+ .site-header .mobile-nav-panel .nav-links{display:flex;flex-direction:column;align-items:stretch;gap:4px}
+ .site-header .mobile-nav-panel .nav-links a{font-size:18px;line-height:1.5;padding:12px 14px;min-height:48px}
+ .site-header .mobile-nav-panel .nav-language{display:flex;justify-content:flex-start;gap:16px;border-top:1px solid #f2f4f6;padding:8px 14px 0}
+ .site-header .mobile-nav-panel .nav-language button{font-size:14px;min-height:44px;min-width:44px}
+ .nav-toggle:focus-visible{outline:2px solid #0068ff;outline-offset:2px}
+}
+@media(prefers-reduced-motion:reduce){.nav-toggle span,.site-header .mobile-nav-panel{transition:none}}
+
+/* Full-height mobile navigation inspired by the Toss company menu. */
+@media(max-width:759px){
+ html.mobile-menu-open,html.mobile-menu-open body{overflow:hidden;overscroll-behavior:none}
+ .site-header .mobile-nav-panel{position:fixed;top:var(--nav-height);bottom:0;height:calc(100dvh - var(--nav-height));max-height:none;padding:20px 24px max(28px,env(safe-area-inset-bottom));gap:0;border:0;box-shadow:none;background:rgba(255,255,255,.97);backdrop-filter:blur(24px);transform:translateY(-12px);transition:opacity .28s ease,transform .28s ease,visibility .28s;overscroll-behavior:contain}
+ .site-header .mobile-nav-panel .nav-links{gap:0}
+ .site-header .mobile-nav-panel .nav-links a{display:flex;align-items:center;min-height:64px;padding:14px 0;font-size:24px;line-height:1.5;font-weight:600;letter-spacing:-.025em;color:#333d4b;border-radius:8px}
+ .site-header .mobile-nav-panel .nav-links a:hover{background:transparent;color:#0068ff}
+ .site-header .mobile-nav-panel .nav-links a[aria-current="page"]{color:#191f28;font-weight:700}
+ .site-header .mobile-nav-panel .nav-language{margin-top:auto;padding:28px 0 0;border:0;gap:16px;justify-content:flex-start;flex-shrink:0}
+ .site-header .mobile-nav-panel .nav-language button{font-size:16px;font-weight:500;padding:0;min-width:44px}
+ .site-header .mobile-nav-panel .nav-language>span{opacity:.3}
+ .site-header.menu-open{backdrop-filter:none}
+ .site-header .nav-toggle{border-radius:0}
+ .nav-toggle span{width:24px;height:2px}
+}
+@media(prefers-reduced-motion:reduce){.site-header .mobile-nav-panel{transition:none}}
+
+/* Match the wider EVTAGO wordmark to the navigation proportions. */
+.site-header .brand img{width:180px;height:auto;max-width:none}
+@media(max-width:759px){.site-header .brand img{width:140px}}
+@media(max-width:380px){.site-header .brand img{width:128px}}
+
+/* "제품 소개" 하위 메뉴 (이브이타고 스테이션 / 아이반 / APP)
+   PC: 마우스를 올리거나 키보드로 포커스하면 헤더 아래 화면 전체 폭으로 메뉴가 열린다.
+       메뉴 글씨 영역은 옅은 반투명 흰 배경, 그 아래는 점점 투명해져서 뒤의 홈페이지가 비쳐 보인다.
+   모바일: 전체 메뉴 안에서 "제품 소개" 아래에 항상 펼쳐서 보여준다. */
+.site-header .nav-item{position:relative;display:flex;align-items:center;height:var(--nav-height)}
+.site-header .nav-item.is-active>a{color:#191f28}
+.site-header .nav-sub{position:absolute;top:100%;left:0;z-index:30;display:flex;flex-direction:column;gap:2px;min-width:200px;padding:6px 0 0;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,visibility .22s}
+/* 화면 전체 폭 배경: 위(헤더 바로 아래)는 흰색 → 아래로 갈수록 투명 */
+.site-header .nav-sub::before{content:"";position:fixed;top:var(--nav-height);left:0;right:0;height:290px;z-index:-1;background:linear-gradient(to bottom,rgba(255,255,255,.92) 0,rgba(255,255,255,.9) 48%,rgba(255,255,255,.55) 76%,rgba(255,255,255,0) 100%);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 55%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0,#000 55%,transparent 100%)}
+.site-header .nav-links .nav-sub a{display:flex;align-items:center;min-height:44px;padding:10px 16px;border-radius:0;font-size:15px;line-height:1.5;font-weight:500;letter-spacing:-.02em;white-space:nowrap;color:#333d4b;background:transparent}
+.site-header .nav-links .nav-sub a:hover{background:transparent;color:#0068ff}
+.site-header .nav-links .nav-sub a[aria-current="page"]{color:#0068ff;font-weight:700}
+@media(min-width:760px){
+ .site-header .nav-item.has-sub:hover .nav-sub,.site-header .nav-item.has-sub:focus-within .nav-sub,.site-header .nav-item.has-sub.is-open .nav-sub{opacity:1;visibility:visible;pointer-events:auto}
+ /* 홈 첫 화면처럼 헤더가 투명할 때는 메뉴가 열린 동안 패널과 같은 옅은 흰색으로 맞춘다 */
+ body#home .site-header:has(.nav-item.has-sub:hover),body#home .site-header:has(.nav-item.has-sub:focus-within),body#home .site-header:has(.nav-item.has-sub.is-open){background:rgba(255,255,255,.92)}
+}
+@media(max-width:759px){
+ .site-header .mobile-nav-panel .nav-item{display:block;height:auto}
+ .site-header .mobile-nav-panel .nav-sub{position:static;min-width:0;margin:0 0 8px;padding:0 0 0 16px;gap:0;opacity:1;visibility:visible;pointer-events:auto;transition:none}
+ .site-header .mobile-nav-panel .nav-sub::before{content:none}
+ .site-header .mobile-nav-panel .nav-links .nav-sub a{min-height:52px;padding:10px 0;font-size:19px;font-weight:500;letter-spacing:-.02em;color:#6b7684;border-radius:8px}
+ .site-header .mobile-nav-panel .nav-links .nav-sub a:hover{background:transparent;color:#0068ff}
+ .site-header .mobile-nav-panel .nav-links .nav-sub a[aria-current="page"]{color:#0068ff;font-weight:700}
+ .site-header .mobile-nav-panel .nav-item.is-active>a{color:#191f28;font-weight:700}
+}
+@media(prefers-reduced-motion:reduce){.site-header .nav-sub{transition:none}}

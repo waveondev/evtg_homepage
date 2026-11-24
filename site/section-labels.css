@@ -1,0 +1,16 @@
+/* Section English labels: Play, 70% of their previous type size. */
+body .kicker,body .motion-caption .chapter{font-family:'Play',sans-serif;font-size:11.2px;font-weight:400}
+body .station-layout .kicker,body .app-layout .kicker{font-size:9.8px}
+body .company-story>.wrap>.kicker,body .lifestyle-copy .kicker{font-size:11.2px}
+@media(max-width:759px){
+ body .station-layout .kicker,body .app-layout .kicker{font-size:8.4px}
+ body .company-story>.wrap>.kicker,body .lifestyle-copy .kicker,body .motion-caption .chapter{font-size:9.8px}
+}
+
+body .kicker,body .motion-caption .chapter,body .swap-number,
+body .station-layout .kicker,body .app-layout .kicker,
+body .company-story>.wrap>.kicker,body .lifestyle-copy .kicker{
+ font-family:'Play',sans-serif;font-weight:700;color:var(--blue,#0068ff);
+}
+
+body #lifestyle .lifestyle-copy .kicker{color:#c8c8c8}

@@ -1,0 +1,41 @@
+/* Two full-bleed editorial panels, based on the supplied Kooroo reference. */
+.station-story,.story-section.app-story{padding:0;background:#fff}
+.station-layout,.app-layout{width:100%;max-width:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;min-height:calc(100svh - var(--nav-height))}
+.station-layout>div,.app-layout>div{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px clamp(32px,4.5vw,88px);min-width:0}
+.station-layout h2,.app-layout h2{font-size:clamp(32px,3.25vw,52px);line-height:1.4;letter-spacing:-.035em;font-weight:700;color:#111;max-width:650px}
+.station-layout .kicker,.app-layout .kicker{color:#666;font-size:14px;line-height:1.5;letter-spacing:.03em;font-weight:500;margin:0 0 28px}
+.station-layout .lead,.app-layout .lead{font-size:16px;line-height:1.7;color:#727780;margin:28px 0 0;max-width:420px}
+.station-story .button{margin-top:32px;background:#111;color:#fff;padding:15px 24px;border-radius:100px;min-height:50px;font-weight:500;gap:20px}
+.station-story .button:hover{background:#333}
+.station-render{position:relative;margin:0;overflow:hidden;min-height:calc(100svh - var(--nav-height));background:#eee}
+.station-render img,.app-layout>img{display:block;width:100%;height:100%;position:absolute;inset:0;object-fit:cover;border-radius:0;transform:none;object-position:center}
+.station-render img{object-position:58% center}
+.station-render figcaption{position:absolute;bottom:24px;left:24px;right:24px;margin:0;color:white;font-size:12px;letter-spacing:.04em;text-shadow:0 1px 8px #000}
+.app-layout{position:relative}.app-layout>img{position:relative;height:calc(100svh - var(--nav-height));min-height:640px;object-position:42% center}
+@media(max-width:759px){
+.station-layout,.app-layout{grid-template-columns:1fr;min-height:0}
+.station-layout>div,.app-layout>div{padding:88px 24px;min-height:420px}
+.station-layout h2,.app-layout h2{font-size:32px;line-height:1.4}
+.station-layout .kicker,.app-layout .kicker{font-size:12px;margin-bottom:24px}
+.station-layout .lead,.app-layout .lead{margin-top:24px;font-size:16px}
+.station-render{min-height:0;height:70svh;max-height:680px}
+.app-layout>div{grid-row:1}.app-layout>img{height:70svh;min-height:0;max-height:680px}
+}
+
+/* Rounded station image card and Toss-style primary action. */
+#network .station-layout{padding:32px;gap:32px;align-items:center}
+#network .station-layout>div{padding:64px 32px}
+#network .station-render{width:100%;height:calc(100svh - var(--nav-height) - 64px);min-height:480px;max-height:900px;border-radius:40px;isolation:isolate}
+#network .button{background:#0068ff;color:#fff;border-radius:12px;padding:14px 20px;min-height:48px;font-size:16px;line-height:20px;font-weight:500;gap:12px}
+#network .button:hover{background:#1b64da}
+@media(max-width:759px){#network .station-layout{padding:16px;gap:0}#network .station-layout>div{padding:72px 16px}#network .station-render{height:65svh;min-height:360px;max-height:620px;border-radius:28px}}
+
+/* Match the station's inset image card in the connected-mobility panel. */
+.app-story .app-layout{padding:32px;gap:32px;align-items:center}
+.app-story .app-layout>div{padding:64px 32px}
+.app-story .app-layout>img{height:calc(100svh - var(--nav-height) - 64px);min-height:480px;max-height:900px;border-radius:40px}
+@media(max-width:759px){
+ .app-story .app-layout{padding:16px;gap:0}
+ .app-story .app-layout>div{padding:72px 16px}
+ .app-story .app-layout>img{height:65svh;min-height:360px;max-height:620px;border-radius:28px}
+}

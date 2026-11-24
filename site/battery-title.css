@@ -1,0 +1,19 @@
+#battery{padding-top:0}.battery-title-scene{position:relative}.battery-title-view{min-height:calc(100svh - var(--nav-height));display:grid;place-items:center;padding:80px 0}
+.battery-title-view h2{font-size:clamp(36px,5.8vw,84px);line-height:1.32;letter-spacing:-.04em;text-align:center;margin:0;font-weight:700}
+.battery-title-line{display:table;position:relative;margin:auto;color:#dfe1e5;white-space:nowrap}
+.battery-title-line>span{display:block;background:linear-gradient(to right,#25282d 0 var(--ink-progress,100%),#dfe1e5 var(--ink-progress,100%) 100%);background-clip:text;-webkit-background-clip:text;color:transparent}
+.battery-title-line:after{content:'';position:absolute;top:.15em;bottom:.12em;width:3px;background:#0068ff;left:var(--ink-progress,100%);opacity:var(--cursor-opacity,0)}
+.battery-title-scene.is-ready{height:170svh}.is-ready .battery-title-view{position:sticky;top:var(--nav-height);height:calc(100svh - var(--nav-height));opacity:var(--title-opacity,1);transform:translateY(var(--title-y,0px))}
+#battery .swap-scroll{margin-top:0}
+@media(max-width:759px){.battery-title-view h2{font-size:clamp(25px,6.6vw,48px)}.battery-title-view{padding:60px 0}.battery-title-line:after{width:2px}}
+@media(prefers-reduced-motion:reduce){.battery-title-line>span{background:none;color:#25282d}.battery-title-line:after{display:none}}
+
+/* Keep moving product imagery behind the title glyphs. */
+.battery-title-view{z-index:9}
+
+/* White glyphs appear only inside the moving battery silhouette. */
+.battery-overlap-ink{position:fixed;left:0;top:0;z-index:10;pointer-events:none;visibility:hidden;transform-origin:0 0;mask-image:url('assets/story/battery-carry-corrected-v6.webp');-webkit-mask-image:url('assets/story/battery-carry-corrected-v6.webp');mask-size:100% 100%;-webkit-mask-size:100% 100%;mask-repeat:no-repeat;-webkit-mask-repeat:no-repeat}
+.battery-overlap-ink h2,.battery-overlap-ink .battery-title-line{color:#fff!important}
+.battery-overlap-ink .battery-title-line>span{background:none!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
+.battery-overlap-ink .battery-title-line:after{display:none}
+@media(max-width:759px){.battery-overlap-ink{display:none!important}}
