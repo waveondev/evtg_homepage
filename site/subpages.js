@@ -15,7 +15,7 @@ function buildTextLines(){
   el.textContent='';
   text.split('\n').forEach((paragraph,index)=>{
    if(index)el.append(document.createElement('br'));
-   paragraph.trim().split(/\s+/).filter(Boolean).forEach(word=>{const span=document.createElement('span');span.textContent=word+' ';span.style.display='inline-block';el.append(span)});
+   paragraph.trim().split(/[ \t\r\n]+/).filter(Boolean).forEach(word=>{const span=document.createElement('span');span.textContent=word+' ';span.style.display='inline-block';el.append(span)});
   });
   const rows=[];
   [...el.querySelectorAll('span')].forEach(word=>{const top=word.offsetTop;let row=rows[rows.length-1];if(!row||Math.abs(row.top-top)>2){row={top,text:''};rows.push(row)}row.text+=word.textContent});
