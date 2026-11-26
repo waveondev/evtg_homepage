@@ -19,8 +19,10 @@ const STOP_MERGE=80;     // 이 거리(px)보다 가까운 칸은 하나로 합�
 const TOLERANCE=24;      // 칸 위에 "있다"고 보는 오차(px)
 let broken=false;        // 오류가 나면 일반 스크롤로 되돌린다
 const STEP_GAP=500;      // 입력 사이 최소 간격(ms): 한 동작에서 이벤트가 여러 번 들어와도 한 칸만 이동
-const WHEEL_GAP=900;     // 휠로 다음 칸에 넘어가는 최소 간격(ms). 늘리면 천천히, 줄이면 빠르게 넘어간다
+const WHEEL_GAP=700;     // 휠로 다음 칸에 넘어가는 최소 간격(ms). 늘리면 천천히, 줄이면 빠르게 넘어간다
 let anim=0,animTarget=null,handoff=false,lockUntil=0,lastStepAt=0;
+const AUTO_HOLD=300;     // 히어로 정면·옆모습 장면에서 머무는 시간(ms). 지나면 자동으로 다음 장면으로 넘어간다
+let autoTimer=0,lastDir=0;
 
 const navH=()=>parseFloat(getComputedStyle(root).getPropertyValue('--nav-height'))||64;
 const q=s=>document.querySelector(s);
@@ -30,7 +32,7 @@ function computeStops(){
  const nav=navH(),H=innerHeight,y=scrollY,max=Math.max(0,root.scrollHeight-H);
  const top=el=>el.getBoundingClientRect().top+y;
  const list=[];
- const add=(v,dwell=0)=>list.push({y:Math.max(0,Math.min(max,Math.round(v))),dwell});
+ const add=(v,dwell=0,auto=false)=>list.push({y:Math.max(0,Math.min(max,Math.round(v))),dwell,auto});
  const covered=new Set();
  // 보통 섹션(화면 한 장 높이)은 1칸, 더 길면 균등하게 나눈 여러 칸
  const sectionStops=(el,dwell=0)=>{
@@ -41,7 +43,8 @@ function computeStops(){
 
  // 1) 히어로 (장면 4개 + 글자 채움 화면)
  const hero=window.EvtagoHero?.geometry();
- if(hero){hero.stops.forEach(v=>add(v));add(hero.titleStop,2100);}
+ // 정면(1) · 옆모습(2) 장면은 아래로 내려와 도착하면 잠시 보여준 뒤 자동으로 다음 장면으로 넘어간다
+ if(hero){hero.stops.forEach((v,i)=>add(v,0,i===1||i===2));add(hero.titleStop,2100);}
  // 2) 배터리 교환 (고정 화면: 1단계 / 2단계)
  const swap=q('.swap-scroll');
  if(swap){
@@ -83,7 +86,7 @@ function computeStops(){
  const merged=[];
  for(const s of list){
   const prev=merged[merged.length-1];
-  if(prev&&s.y-prev.y<STOP_MERGE){prev.y=s.y;prev.dwell=Math.max(prev.dwell,s.dwell);}
+  if(prev&&s.y-prev.y<STOP_MERGE){prev.y=s.y;prev.dwell=Math.max(prev.dwell,s.dwell);prev.auto=prev.auto||s.auto;}
   else merged.push({...s});
  }
  return merged;
@@ -93,7 +96,17 @@ function computeStops(){
 const ease=k=>k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;
 const easeOut=k=>1-Math.pow(1-k,3);
 // lockUntil 은 입력을 막지 않는다. 자동 재생 중에 settle() 이 위치를 보정하지 않도록 할 때만 쓴다.
-function arrive(stop){anim=0;animTarget=null;handoff=false;lockUntil=performance.now()+(stop?.dwell||0);}
+function arrive(stop){anim=0;animTarget=null;handoff=false;lockUntil=performance.now()+(stop?.dwell||0);if(stop?.auto&&lastDir>0)scheduleAuto();}
+// 히어로 프레임 재생이 장면에 다 도착한 뒤부터 AUTO_HOLD 만큼 보여주고 다음 칸으로. 사용자가 입력하면 취소된다.
+function scheduleAuto(){
+ clearTimeout(autoTimer);
+ const wait=()=>{
+  const hero=window.EvtagoHero;
+  if(hero&&!(hero.settled?hero.settled():!hero.busy())){autoTimer=setTimeout(wait,30);return;}
+  autoTimer=setTimeout(()=>{autoTimer=0;if(!moving()&&!document.hidden){lastStepAt=0;step(1);}},AUTO_HOLD);
+ };
+ wait();
+}
 function glideTo(stop){
  const interrupted=anim!==0,curve=interrupted?easeOut:ease;   // 이동 중에 방향이 바뀌면 멈칫하지 않도록 바로 속도를 낸다
  cancelAnimationFrame(anim);anim=0;
@@ -110,6 +123,7 @@ function glideTo(stop){
  anim=requestAnimationFrame(stepFrame);
 }
 function moveTo(stop,dir){
+ lastDir=dir;
  const hero=window.EvtagoHero,g=hero?.geometry();
  // 히어로 마지막 장면 → 글자 화면: 배터리가 날아가는 연출은 히어로 엔진이 위치를 직접 움직인다
  if(g&&dir>0&&Math.abs(scrollY-g.end)<=TOLERANCE*2&&Math.abs(stop.y-g.titleStop)<2&&hero.handoff(stop.y)){
@@ -131,12 +145,14 @@ function step(dir){
   const next=dir>0?list.find(s=>s.y>y+TOLERANCE):[...list].reverse().find(s=>s.y<y-TOLERANCE);
   if(!next)return false;
   if(handoff){window.EvtagoHero?.cancelHandoff();handoff=false;}
+  clearTimeout(autoTimer);autoTimer=0;   // 사용자가 직접 넘기면 자동 넘김은 취소
   lastStepAt=now;
   moveTo(next,dir);return true;
  }catch(err){broken=true;root.classList.remove('pager-on');console.error('[pager] 비활성화:',err);return false;}
 }
 function jump(which){
  if(broken||moving())return;
+ clearTimeout(autoTimer);autoTimer=0;lastDir=0;
  try{const list=computeStops();glideTo(which<0?list[0]:list[list.length-1]);}catch(err){broken=true;}
 }
 
@@ -229,7 +245,7 @@ function settle(){
  try{
   const list=computeStops(),y=scrollY;
   let best=list[0];for(const s of list)if(Math.abs(s.y-y)<Math.abs(best.y-y))best=s;
-  if(Math.abs(best.y-y)>6)glideTo({...best,dwell:0});
+  if(Math.abs(best.y-y)>6){lastDir=0;glideTo({...best,dwell:0});}
  }catch(err){broken=true;}
 }
 addEventListener('scroll',()=>{

@@ -337,6 +337,8 @@ window.EvtagoHero={
  // 재생 헤드/오프닝이 목표에 아직 도달하지 못했으면 true
  busy:()=>!reduced.matches&&(Math.abs(playback.position-target)>.5||Math.abs(opening-openingTarget)>.005||!!handoffRun),
  running:()=>!!handoffRun,
+ // 눈에 띄는 움직임이 끝났으면 true (자동 장면 넘김용: busy 보다 느슨한 기준)
+ settled:()=>reduced.matches||(Math.abs(playback.position-target)<=3&&Math.abs(opening-openingTarget)<=.03&&!handoffRun),
  // 배터리 연출 도중 다른 곳으로 이동할 때: 위치 제어를 페이저에 돌려준다
  cancelHandoff(){handoffRun=null;update();},
  // 마지막 장면에서 글자 화면으로: 배터리 이미지가 날아가는 연출을 재생하며 스크롤을 옮긴다
