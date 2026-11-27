@@ -279,6 +279,7 @@
 .finder-card{position:absolute;z-index:2;left:50%;bottom:32px;transform:translateX(-50%);box-sizing:border-box;width:min(420px,calc(100% - 32px));padding:24px 56px 24px 24px;border-radius:24px;background:#fff;box-shadow:0 8px 32px rgba(0,27,55,.16);animation:finder-card-in .22s ease-out}
 .finder-card-status{display:inline-block;padding:3px 10px;border-radius:999px;background:#f2f4f6;color:#6b7684;font-size:13px;font-weight:600;line-height:1.5}
 .finder-card-status.is-open{background:#e8f3ff;color:#0068ff}
+.finder-card-status.is-soon{background:#fff3e6;color:#e57a00}
 .subpage .finder-card-name{margin:10px 0 0;font-size:20px;font-weight:700;line-height:1.4;letter-spacing:-.02em;color:#191f28;word-break:keep-all}
 .finder-card-address{margin:4px 0 0;font-size:15px;line-height:1.5;color:#6b7684;word-break:keep-all}
 .finder-card-close{position:absolute;top:16px;right:16px;width:32px;height:32px;padding:0;border:0;border-radius:50%;background:#f2f4f6;color:#4e5968;font:20px/32px sans-serif;cursor:pointer}

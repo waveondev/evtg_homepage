@@ -25,7 +25,8 @@ const resolveRef = (pageDirAbs, u) => (u.startsWith('/') ? path.join(DIST, strip
 
 // 아직 공개하지 않는 페이지: 소스(site/)에는 남겨 두고 배포본(dist/)에서만 뺀다. → 주소로 들어와도 404
 // 공개할 때는 여기서 지우고, 각 페이지 메뉴에 링크를 다시 넣으면 된다.
-const HIDDEN = new Set(['station-finder', 'station-finder.js'].map((p) => path.join(SITE, p)));
+// 예) const HIDDEN = new Set(['station-finder', 'station-finder.js'].map((p) => path.join(SITE, p)));
+const HIDDEN = new Set([].map((p) => path.join(SITE, p)));
 
 fs.rmSync(DIST, { recursive: true, force: true });
 fs.cpSync(SITE, DIST, { recursive: true, filter: (src) => path.basename(src) !== '.DS_Store' && !HIDDEN.has(src) });

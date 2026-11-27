@@ -15,13 +15,14 @@ const addressEl=card.querySelector('.finder-card-address');
 const statusEl=card.querySelector('.finder-card-status');
 
 const en=new URLSearchParams(location.search).get('lang')==='en';
-const text=en?{open:'Open',closed:'Closed',empty:'No stations to show yet.',error:'Couldn’t load the station map. Refresh the page and try again.'}
- :{open:'운영 중',closed:'운영 중단',empty:'표시할 스테이션이 아직 없습니다.',error:'스테이션 지도를 불러오지 못했습니다. 페이지를 새로고침해 주세요.'};
+const text=en?{open:'Open',closed:'Coming soon',empty:'No stations to show yet.',error:'Couldn’t load the station map. Refresh the page and try again.'}
+ :{open:'운영 중',closed:'오픈 예정',empty:'표시할 스테이션이 아직 없습니다.',error:'스테이션 지도를 불러오지 못했습니다. 페이지를 새로고침해 주세요.'};
 
 const showMessage=value=>{messageEl.textContent=value;messageEl.hidden=false;};
 
 // 사용자 앱(BSSFE) 마커 이미지에서 숫자를 뺀 합성본. 원본 비율 35:43 유지.
-const MARKER_SRC={open:'/assets/station/marker.png',closed:'/assets/station/marker-closed.png'};
+// 운영 전(availableState≠'Y') 스테이션은 '오픈 예정'으로 보고 라바콘 마커를 쓴다.
+const MARKER_SRC={open:'/assets/station/marker.png',closed:'/assets/station/marker-soon.svg'};
 const markerImage=(src,width,height)=>new kakao.maps.MarkerImage(src,new kakao.maps.Size(width,height),{offset:new kakao.maps.Point(width/2,height)});
 
 const loadStations=async()=>{
@@ -68,6 +69,7 @@ const start=async()=>{
   addressEl.textContent=[station.stationAddress,station.stationAddressDetail].map(v=>(v||'').trim()).filter(Boolean).join(' ');
   statusEl.textContent=open?text.open:text.closed;
   statusEl.classList.toggle('is-open',open);
+  statusEl.classList.toggle('is-soon',!open);
   card.hidden=false;
   // 카드에 가려지지 않도록, 카드를 뺀 나머지 지도 영역의 가운데로 마커를 옮긴다.
   const point=map.getProjection().containerPointFromCoords(marker.getPosition());

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="105" height="128" viewBox="0 0 105 128">
+  <!-- 오픈 예정 스테이션 마커: marker.png 와 같은 핀 모양 + 라바콘 -->
+  <path d="M52.5 126C44 112 4.5 86 4.5 50a48 48 0 1 1 96 0c0 36-39.5 62-48 76z" fill="#121212"/>
+  <circle cx="52.5" cy="50" r="38" fill="none" stroke="#ff8a00" stroke-width="4"/>
+  <path d="M48 22h9l12 46H36z" fill="#ff8a00" stroke="#ff8a00" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M44.2 37h16.6l1.9 7.5H42.3zM40.4 51.5h24.2l1.9 7.5H38.5z" fill="#fff"/>
+  <rect x="29" y="67" width="47" height="7" rx="2.5" fill="#ff8a00"/>
+</svg>
